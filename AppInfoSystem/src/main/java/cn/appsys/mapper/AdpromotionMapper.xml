@@ -18,6 +18,7 @@
     id, appId, adPicPath, adPV, carouselPosition, startTime, endTime, createdBy, creationDate, 
     modifyBy, modifyDate
   </sql>
+  <!--OOOOOO  -->
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
