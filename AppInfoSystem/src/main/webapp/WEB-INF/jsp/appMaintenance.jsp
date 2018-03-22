@@ -129,7 +129,7 @@
  				 
 			</table>
              <div class="row">
-             <span class="text-left"> 1/2页</span>
+             <span class="text-left"> ff1/2cvvv页</span>
              
              </div>
             <div class="row">
