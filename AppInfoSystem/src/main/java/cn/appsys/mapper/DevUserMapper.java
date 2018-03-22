@@ -14,4 +14,16 @@ public interface DevUserMapper {
     int updateByPrimaryKeySelective(DevUser record);
 
     int updateByPrimaryKey(DevUser record);
+    
+    
+    
+    //+++++++++++++++++++++++++++++++
+    DevUser getDevUserByUserCode(String devCode);
+    
+    
+    
+    
+    
+    
+    
 }

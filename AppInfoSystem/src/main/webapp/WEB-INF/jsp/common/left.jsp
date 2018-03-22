@@ -43,11 +43,11 @@
             <!-- menu profile quick info -->
             <div class="profile">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="${pageContext.request.contextPath }/statics/images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2>${userSession.devname }</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -116,7 +116,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="${pageContext.request.contextPath }/statics/images/img.jpg" alt="">${userSession.devname }
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -134,7 +134,7 @@
                       <a>
                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>John Smith</span>
+                          <span>${userSession.devname }</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
@@ -146,7 +146,7 @@
                       <a>
                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>John Smith</span>
+                          <span>${userSession.devname }</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
@@ -158,7 +158,7 @@
                       <a>
                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>John Smith</span>
+                          <span>${userSession.devname }</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
@@ -170,7 +170,7 @@
                       <a>
                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>John Smith</span>
+                          <span>${userSession.devname }</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
