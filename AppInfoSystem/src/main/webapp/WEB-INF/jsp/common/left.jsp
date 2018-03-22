@@ -69,7 +69,7 @@
                 	
                   <li><a><i class="fa fa-home"></i>App应用管理<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">App维护</a></li>
+                      <li><a href="${pageContext.request.contextPath }/appMaintenanceView">App维护</a></li>
                     </ul>
                   </li>
                 </ul>
