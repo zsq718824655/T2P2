@@ -15,21 +15,21 @@
             <hr/>
             </div>
             
-            <form action="" method="post">
+            <form action="${pageContext.request.contextPath }/appMaintenanceView" method="post">
             <div class="row">
        `    <div class="col-md-3 form-group">
        			 <span class="col-md-3 text-center" style="line-height: 34px">软件名称：</span>
        			<div class="col-md-9">
        			
-       			 <input class="form-control" type="text" />
+       			 <input name="softwareName" class="form-control" type="text" />
        			 </div>
        		</div>
        		
        		<div class="col-md-3 form-group">
   			        <span class="col-md-3 text-center" style="line-height: 34px">app状态：</span>
        			<div class="col-md-9">
-       			<select class="form-control">
-       			<option>---请选择-----</option>
+       			<select name="appStatus" class="form-control">
+       			<option value="0">---请选择-----</option>
        			</select>
        			
        			 </div>
@@ -39,8 +39,8 @@
         	     <span class="col-md-3 text-center" style="line-height: 34px">所属平台：</span>
        			<div class="col-md-9">
        			
-       			 <select class="form-control">
-       			<option>---请选择-----</option>
+       			 <select name="appFlatform" class="form-control">
+       			<option value="0">---请选择-----</option>
        			</select>
        			 </div>
        		</div>
@@ -51,8 +51,8 @@
        			 <span class="col-md-3 text-center" style="line-height: 34px">一级分类：</span>
        			<div class="col-md-9">
        			
-       			 <select class="form-control">
-       			<option>---请选择-----</option>
+       			 <select  name="oneType" class="form-control oneType">
+       			<option value="0">---请选择-----</option>
        			</select>
        			 </div>
        		</div>
@@ -61,16 +61,16 @@
   			        <span class="col-md-3 text-center" style="line-height: 34px">二级分类：</span>
        			<div class="col-md-9">
        			
-       			<select class="form-control">
+       			<select name="twoType" class="form-control twoType">
        			</select>
        			 </div>
        		</div>
        		
        		<div class="col-md-3 form-group">
-        	     <span class="col-md-3 text-center" style="line-height: 34px">三级分类：</span>
+        	     <span class="col-md-3 text-center threeType" style="line-height: 34px">三级分类：</span>
        			<div class="col-md-9">
        			
-       			 <select class="form-control">
+       			 <select name="threeType" class="form-control">
        			
        			</select>
        			 </div>
@@ -84,6 +84,8 @@
               
            	 </div>
            	 
+           	 <!-- 当前的页数 -->
+           	 <input type="hidden" name="pageIndex" value="1"/>
            </form>
         	  
         	   
@@ -123,17 +125,36 @@
  				<td class="col-md-1">11</td>
  				<td class="col-md-1">11</td>
  				<td class="col-md-1">11</td>
- 				<td class="col-md-2">11</td>
+ 				<td class="col-md-2 text-center">
+ 				
+ 				<div class="btn-group">
+					  <button type="button" class="btn  btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    点击操作 <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu">
+					  
+					    <li><a href="#">新增版本</a></li>
+					    <li><a href="#">修改版本</a></li>
+					      <li><a href="#">修改</a></li>
+					     <li><a href="#">查看</a></li>
+					  
+					  <li><a href="#">上架/下架</a></li>
+					  <li><a href="#">删除</a></li>
+					  </ul>
+				</div>
+ 				
+ 				</td>
  				</tr>
  				
  				 
 			</table>
-             <div class="row">
-             <span class="text-left"> ff1/2cvvv页</span>
-             
-             </div>
+            
             <div class="row">
-             <span class="col-md-offset-11 text-right"> 1/2页</span>
+           	<c:import url="rollpage.jsp">
+	          	<c:param name="totalCount" value="${totalCount}"/>
+	          	<c:param name="currentPageNo" value="${currentPageNo}"/>
+	          	<c:param name="totalPageCount" value="${totalPageCount}"/>
+          	</c:import>
             
              </div>
            
@@ -166,6 +187,6 @@
  </div>
 
 
-
+<<script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/appMaintenance.js"></script>
 </body>
 </html>
