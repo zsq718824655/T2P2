@@ -47,13 +47,13 @@
    
    <mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>  
    
-   <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+<!--    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
    	 <property name="exceptionMappings">
    	 	<props>
    	 		<prop key="java.lang.RuntimeException">error</prop>
    	 	</props>
    	 </property>
-   </bean>  
+   </bean>  --> 
    
    <bean id="cm" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
    		<property name= "mediaTypes">   

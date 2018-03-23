@@ -39,17 +39,22 @@ public class UserLoginController {
 			return "UserMain";
 		}else {//登录失败
 			model.addAttribute("loginErro", "用户名或者密码错误");
-			return "forward:/login";
+			return "forward:/FirstLogin";
 		}
 		
 	}
 	
 	//去登录页面
-	@RequestMapping(value="/login")
+	@RequestMapping(value="/FirstLogin")
 	public String login() {
 		
-		return "login";
+		return "FirstLogin";
 		
+	}
+	//登录首页
+	@RequestMapping(value="/Login")
+	public String Login2() {
+		return "login";
 	}
 	
 }

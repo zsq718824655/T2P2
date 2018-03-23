@@ -1,0 +1,188 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<% String path = request.getContextPath(); String basePath = request.getScheme()
++"://"+request.getServerName()+":"+request.getServerPort()+path+"/"; 
+%> 
+      
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<base href=" <%=basePath%>">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>login in | </title>
+
+    <!-- Bootstrap -->
+    <link href="statics/gentelella-master/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="statics/gentelella-master/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="statics/gentelella-master/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="statics/gentelella-master/build/css/custom.min.css" rel="stylesheet">
+    <script type="text/javascript" src="statics/jquery/jquery-1.12.4.js"></script>
+  </head>
+
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form id="devForm" action="${pageContext.request.contextPath }/loginGo"  method="post">
+              <h1>普通用户登录</h1>
+              <div>
+                 <span id="undevname"></span>
+                <input type="text" id="devCode" class="form-control" name="devcode"   placeholder="Username" required="" /><span></span> 
+				             
+              </div>
+              <div>
+                 <span id="undevpassword"></span>
+                <input type="password" id="devpassword"class="form-control" name="devpassword" placeholder="Password" required="" /><span></span> 
+              </div>
+              <div>
+           		 <span id="error"></span><br>
+                <input type="submit" id="submit" value="登录">
+               <input type="reset"/><br><br>
+              
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">新网站?
+                  <a href="#signup" class="to_register"> 创建新账户</a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> 普通用户!</h1>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+         <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form>
+              <h1>新建用户</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" required="" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" required="" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" />
+              </div>
+              <div>
+                <a class="btn btn-default submit" href="${pageContext.request.contextPath }/ <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form>
+              <h1>新建用户</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" required="" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" required="" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" />
+              </div>
+              <div>
+                <a class="btn btn-default submit" href="${pageContext.request.contextPath }/appMaintenanceView">提交</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">已注册 ?·	
+                  <a href="#signin" class="to_register"> 注册</a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> 开发者用户!</h1>
+                </div>
+              </div>
+            </form>">提交</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">已注册 ?
+                  <a href="#signin" class="to_register"> 注册</a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> 普通用户!</h1>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+  	var flag = true;
+  	$("#submit").click(function(){
+  		
+  		//alert("+++++++++");
+  			//$("#devForm").submit();
+  			$("#devForm").submit(function(){
+  				if(flag){
+  					return true;
+  				}else{
+  					$("#error").text("您输入的账号或密码错误").css("color","red");
+  					return false;
+  				}
+  			}); 
+  		
+  	});
+  
+		$("#devCode").blur(function(){
+  			$(this).next().html("");
+  			if($(this).val().length <=5 ){
+  				$("#undevname").html("请输入正确登录账号").css("color","gray");
+  				flag = false;
+  			}else{
+  				flag = true;
+  			}
+  		});
+  		
+  		$("#devpassword").blur(function(){
+  			$(this).next().html("");
+  	  		if($(this).val().length!=6){
+  	  		//alert("aaaa");
+  	  			$("#undevpassword").html("请输入正确的密码").css("color","gray");
+  	  			flag = false;
+  	  		}else{
+  				flag = true;
+  			}
+  	  	});		
+  		
+  		
+  		
+  </script>
+</html>
