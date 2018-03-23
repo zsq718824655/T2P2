@@ -4,6 +4,9 @@
 <%@include file="/WEB-INF/jsp/common/left.jsp"%>
 
 
+
+
+
 <div class="right_col" role="main" style="min-height: 1021.99px;">
 <!---顶部下开始++++++++++++++++++++++->
         <!-- page content -->
@@ -21,16 +24,25 @@
        			 <span class="col-md-3 text-center" style="line-height: 34px">软件名称：</span>
        			<div class="col-md-9">
        			
-       			 <input name="softwareName" class="form-control" type="text" />
+       			 <input name="softwareName" class="form-control" type="text" value="${queryBean.softwareName }"/>
        			 </div>
        		</div>
        		
        		<div class="col-md-3 form-group">
   			        <span class="col-md-3 text-center" style="line-height: 34px">app状态：</span>
        			<div class="col-md-9">
-       			<select name="appStatus" class="form-control">
-       			<option value="0">---请选择-----</option>
+       			
+       			 <select name="appStatus" class="form-control">
+       			<c:if test="${allStatus != null }">
+						   <option value="0">--请选择--</option>
+						   <c:forEach var="allst" items="${allStatus}">
+						   		<option <c:if test="${allst.valueid == queryBean.appStatus }">selected="selected"</c:if>
+						   		value="${allst.valueid}">${allst.valuename}</option>
+						   </c:forEach>
+				</c:if>
        			</select>
+       			
+       			
        			
        			 </div>
        		</div>
@@ -40,7 +52,13 @@
        			<div class="col-md-9">
        			
        			 <select name="appFlatform" class="form-control">
-       			<option value="0">---请选择-----</option>
+       			<c:if test="${allplat != null }">
+						   <option value="0">--请选择--</option>
+						   <c:forEach var="allpl" items="${allplat}">
+						   		<option <c:if test="${allpl.valueid == queryBean.appFlatform }">selected="selected"</c:if>
+						   		value="${allpl.valueid}">${allpl.valuename}</option>
+						   </c:forEach>
+				</c:if>
        			</select>
        			 </div>
        		</div>
@@ -52,7 +70,13 @@
        			<div class="col-md-9">
        			
        			 <select  name="oneType" class="form-control oneType">
-       			<option value="0">---请选择-----</option>
+       			<c:if test="${oneAllCategroy != null }">
+						   <option value="0">--请选择--</option>
+						   <c:forEach var="oneALLcat" items="${oneAllCategroy}">
+						   		<option <c:if test="${oneALLcat.id == queryBean.oneType }">selected="selected"</c:if>
+						   		value="${oneALLcat.id}">${oneALLcat.categoryname}</option>
+						   </c:forEach>
+				</c:if>
        			</select>
        			 </div>
        		</div>
@@ -67,10 +91,10 @@
        		</div>
        		
        		<div class="col-md-3 form-group">
-        	     <span class="col-md-3 text-center threeType" style="line-height: 34px">三级分类：</span>
+        	     <span class="col-md-3 text-center" style="line-height: 34px">三级分类：</span>
        			<div class="col-md-9">
        			
-       			 <select name="threeType" class="form-control">
+       			 <select name="threeType" class="form-control threeType">
        			
        			</select>
        			 </div>
@@ -115,17 +139,17 @@
  				<th class="col-md-1">最新版本</th>
  				<th class="col-md-2">操作</th>
  				</tr>
- 				
+ 				<c:forEach items="${list }" varStatus="varstu" var="appInfo">
  				<tr class="row">
- 				<td class="col-md-1">11</td>
- 				<td class="col-md-2">11</td>
- 				<td class="col-md-1">11</td>
- 				<td class="col-md-1">11</td>
- 				<td class="col-md-2">11</td>
- 				<td class="col-md-1">11</td>
- 				<td class="col-md-1">11</td>
- 				<td class="col-md-1">11</td>
- 				<td class="col-md-2 text-center">
+ 				<td class="col-md-1">${appInfo.softwarename }</td>
+ 				<td class="col-md-2">${appInfo.apkname }</td>
+ 				<td class="col-md-1">${appInfo.softwaresize }</td>
+ 				<td class="col-md-1">${platNames[varstu.index] } </td>
+ 				<td class="col-md-2">${categoryNames[varstu.index]}</td>
+ 				<td class="col-md-1">${status[varstu.index]}</td>
+ 				<td class="col-md-1">${appInfo.downloads }</td>
+ 				<td class="col-md-1">11111</td>
+ 					<td class="col-md-2 text-center">
  				
  				<div class="btn-group">
 					  <button type="button" class="btn  btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -144,7 +168,9 @@
 				</div>
  				
  				</td>
- 				</tr>
+ 				<tr/>
+ 				</c:forEach>
+ 				
  				
  				 
 			</table>
@@ -152,7 +178,7 @@
             <div class="row">
            	<c:import url="rollpage.jsp">
 	          	<c:param name="totalCount" value="${totalCount}"/>
-	          	<c:param name="currentPageNo" value="${currentPageNo}"/>
+	          	<c:param name="currentPageNo" value="${queryBean.pageIndex}"/>
 	          	<c:param name="totalPageCount" value="${totalPageCount}"/>
           	</c:import>
             

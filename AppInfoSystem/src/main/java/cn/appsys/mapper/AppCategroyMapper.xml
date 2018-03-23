@@ -125,4 +125,27 @@
       modifyDate = #{modifydate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  
+  
+  
+  <!--++++  -->
+  
+  <select id="getByCatagroyIdName" parameterType="Long" resultType="String">
+  SELECT categoryName FROM app_category WHERE id=#{cataId}
+  </select>
+  
+  
+  
+  <select id="getAllCatagroy" parameterType="Integer" resultMap="BaseResultMap">
+  SELECT * FROM app_category WHERE parentId=#{pid}
+  </select>
+  
+  
+ 
+   <select id="getTwoCatagroy" parameterType="Integer" resultMap="BaseResultMap">
+  SELECT * FROM app_category WHERE parentId=#{pid}
+  </select>
+  
+  
 </mapper>

@@ -17,18 +17,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>login in | </title>
-
-    <!-- Bootstrap -->
-    <link href="statics/gentelella-master/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="statics/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="statics/gentelella-master/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/statics/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="statics/gentelella-master/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/statics/css/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="${pageContext.request.contextPath }/statics/css/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="${pageContext.request.contextPath }/statics/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="${pageContext.request.contextPath }/statics/css/jqvmap.min.css" rel="stylesheet"/>
 
     <!-- Custom Theme Style -->
-    <link href="statics/gentelella-master/build/css/custom.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
+
     <script type="text/javascript" src="statics/jquery/jquery-1.12.4.js"></script>
   </head>
 

@@ -1,6 +1,6 @@
 package cn.appsys.backservice;
 
-public class backservice {
+public class backservice1 {
 
 	
 }

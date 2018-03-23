@@ -8,7 +8,7 @@ public class DevQueryBean {
 
 	
 	private String softwareName;//软件名字
-	private Integer appStatus;//app状态
+	private Long appStatus;//app状态
 	private Integer appFlatform;//所属平台
 	private Integer oneType;//一级
 	private Integer twoType;//二级
@@ -32,10 +32,11 @@ public class DevQueryBean {
 	public void setSoftwareName(String softwareName) {
 		this.softwareName = softwareName;
 	}
-	public Integer getAppStatus() {
+
+	public Long getAppStatus() {
 		return appStatus;
 	}
-	public void setAppStatus(Integer appStatus) {
+	public void setAppStatus(Long appStatus) {
 		this.appStatus = appStatus;
 	}
 	public Integer getAppFlatform() {

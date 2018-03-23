@@ -316,4 +316,76 @@
       versionId = #{versionid,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  
+  
+  <!-- +++++++++++++++++++++++ -->
+  <select id="getAppInfoCount" parameterType="cn.appsys.utils.DevQueryBean" resultType="int">
+  SELECT COUNT(1) FROM app_info  
+  <where>
+ 	<if test="softwareName !=''">
+	 softwareName LIKE  "%"#{softwareName}"%" 
+ 	</if>
+ 	<if test="appStatus !=0">
+	 AND STATUS=#{appStatus}  
+ 	</if>
+ 	<if test="appFlatform !=0">
+	AND flatformId=#{appFlatform} 
+ 	</if>
+ 	<if test="oneType !=0">
+	AND  categoryLevel1=#{oneType}
+ 	</if>
+  	<if test="twoType !=0">
+	AND categoryLevel2=#{twoType} 
+ 	</if>
+	<if test="threeType !=0">
+	AND categoryLevel3=#{threeType} 
+ 	</if>
+	 
+  </where>
+ 	
+  </select>
+  
+  
+  <!--条件分页查询  -->
+  
+  <select id="queryPageList" resultMap="BaseResultMap">
+  SELECT * FROM app_info
+   
+   <where>
+ 	<if test="queryBean.softwareName !=''">
+	 softwareName LIKE  "%"#{queryBean.softwareName}"%" 
+ 	</if>
+ 	<if test="queryBean.appStatus !=0">
+	 AND STATUS=#{queryBean.appStatus}  
+ 	</if>
+ 	<if test="queryBean.appFlatform !=0">
+	AND flatformId=#{queryBean.appFlatform} 
+ 	</if>
+ 	<if test="queryBean.oneType !=0">
+	AND  categoryLevel1=#{queryBean.oneType}
+ 	</if>
+  	<if test="queryBean.twoType !=0">
+	AND categoryLevel2=#{queryBean.twoType} 
+ 	</if>
+	<if test="queryBean.threeType !=0">
+	AND categoryLevel3=#{queryBean.threeType} 
+ 	</if>
+	 
+  </where>
+   
+  ORDER BY creationDate DESC
+   LIMIT #{currentStartPage},#{pageSize}
+  
+  
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </mapper>

@@ -6,6 +6,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<link href="statics/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="${pageContext.request.contextPath }/statics/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="${pageContext.request.contextPath }/statics/css/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="${pageContext.request.contextPath }/statics/css/flat/green.css" rel="stylesheet">
+    <!-- bootstrap-progressbar -->
+    <link href="${pageContext.request.contextPath }/statics/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="${pageContext.request.contextPath }/statics/css/jqvmap.min.css" rel="stylesheet"/>
+
+    <!-- Custom Theme Style -->
+    <link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
+
+
+
 <script type="text/javascript">
 	
 </script>
