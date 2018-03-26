@@ -28,6 +28,8 @@ public interface AppInfoMapper {
 	AppInfo getByIdAPP(Long appId);
 
 	int saveAPPInfo(AppInfo appinfo);
+
+	int updatePicPath(Long appId);
 	
 	
 	

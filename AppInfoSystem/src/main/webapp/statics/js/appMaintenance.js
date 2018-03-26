@@ -129,3 +129,32 @@ function EditSave() {
 	$("#editFormAPP").submit();
 }
 
+
+//点击删除时候
+function dletPic(appid){
+	
+	var flagTrue=confirm("确定要删除这个图片吗?");
+	if(flagTrue){
+		//移除图片
+		
+		$(".picdivdel").empty();
+		//数据库总清空该图片路径
+		$.ajax({
+			type:"GET",//请求类型
+			url:"deletePicPath",//请求的url
+			data:{appId:appid},
+			dataType:"json",//ajax接口（请求url）返回的数据类型
+			success:function(data){//data：返回数据（json对象）
+				
+				}
+			}
+		
+		);
+		
+		
+		$(".picdivdel").append('<input type="file"  name="logolocpathPic" class="form-control"  required="required">');
+	}
+	
+}
+
+

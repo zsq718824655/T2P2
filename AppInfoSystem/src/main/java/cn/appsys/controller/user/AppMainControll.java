@@ -1,8 +1,13 @@
 package cn.appsys.controller.user;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -178,11 +183,55 @@ public class AppMainControll {
 	
 	//保存修改
 	@RequestMapping("/editSaveApp")
-	public String editSaveAPP( AppInfo appinfo,@RequestParam("logolocpathPic") MultipartFile logolocpathPic) {
+	public String editSaveAPP(Model model,HttpSession session, AppInfo appinfo,@RequestParam("logolocpathPic") MultipartFile attach) {
+		appinfo.setModifydate(new Date());
+		
+		String idPicPath = null;
+		String path="d:\\appPic";
+		//判断文件是否为空
+		if(!attach.isEmpty()){
+			 
+			String oldFileName = attach.getOriginalFilename();//原文件名
+			String prefix=FilenameUtils.getExtension(oldFileName);//原文件后缀     
+			int filesize = 500000;
+	        if(attach.getSize() >  filesize){//上传大小不得超过 500k
+	        	model.addAttribute("uploadFileError", " * 上传大小不得超过 500k");
+	        	//return "useradd";
+            }else if(prefix.equalsIgnoreCase("jpg") || prefix.equalsIgnoreCase("png") 
+            		|| prefix.equalsIgnoreCase("jpeg") || prefix.equalsIgnoreCase("pneg")){//上传图片格式不正确
+            	String fileName = System.currentTimeMillis()+"."+FilenameUtils.getExtension(oldFileName);  
+                File targetFile = new File(path, fileName);  
+                if(!targetFile.exists()){  
+                    targetFile.mkdirs();  
+                }  
+                //保存  
+                try {  
+                	appinfo.setLogolocpath(fileName);
+                	attach.transferTo(targetFile);  
+                } catch (Exception e) {  
+                    e.printStackTrace();  
+                   model.addAttribute("uploadFileError", " * 上传失败！");
+                    return "useradd";
+                }  
+                idPicPath = path+File.separator+fileName;
+            }else{
+            	model.addAttribute("uploadFileError", " * 上传图片格式不正确");
+            	return "useradd";
+            }
+		}
+		
+		
+		
 		
 	boolean flag=	appInfoService.saveAppInfo(appinfo);
 	System.out.println("========"+flag);
 		return "redirect:/appMaintenanceView";
+	}
+	//删除图片
+	@RequestMapping("/deletePicPath")
+	public 	void delAppInfoLoaPic(Long appId) {
+		
+	boolean flag=	appInfoService.updatePicPath(appId);
 	}
 	
 	

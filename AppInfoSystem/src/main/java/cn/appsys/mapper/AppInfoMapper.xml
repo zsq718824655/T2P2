@@ -386,7 +386,8 @@
   
   <update id="saveAPPInfo" parameterType="cn.appsys.pojo.AppInfo">
     update app_info
-    set softwareName = #{softwarename,jdbcType=VARCHAR},
+    <set>
+      softwareName = #{softwarename,jdbcType=VARCHAR},
       APKName = #{apkname,jdbcType=VARCHAR},
       supportROM = #{supportrom,jdbcType=VARCHAR},
       interfaceLanguage = #{interfacelanguage,jdbcType=VARCHAR},
@@ -406,12 +407,27 @@
       modifyDate = #{modifydate,jdbcType=TIMESTAMP},
       categoryLevel1 = #{categorylevel1,jdbcType=BIGINT},
       categoryLevel2 = #{categorylevel2,jdbcType=BIGINT},
+      
       logoPicPath = #{logopicpath,jdbcType=VARCHAR},
-      logoLocPath = #{logolocpath,jdbcType=VARCHAR},
+      <if test="logolocpath!=null and logolocpath!=''">
+       logoLocPath = #{logolocpath,jdbcType=VARCHAR},
+      </if>
+     
       versionId = #{versionid,jdbcType=BIGINT}
+    </set>
+ 
     where id = #{id,jdbcType=BIGINT}
   </update>
   
+  <update id="updatePicPath" parameterType="Long">
+  update app_info
+  <set>
+ 
+       logoLocPath =null
+   
+  </set>
+   where id = #{appId}
+  </update>
   
   
   

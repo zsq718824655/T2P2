@@ -48,5 +48,15 @@ public class AppInfoServiceImpl implements AppInfoService {
 		}
 		
 	}
+	@Override
+	public boolean updatePicPath(Long appId) {
+	int i=	appInfoMapper.updatePicPath(appId);
+	if(i>0) {
+		return true;
+	}else {
+		return false;	
+	}
+		
+	}
 
 }

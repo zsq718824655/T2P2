@@ -15,4 +15,6 @@ public interface AppInfoService {
 
 	boolean saveAppInfo(AppInfo appinfo);
 
+	boolean updatePicPath(Long appId);
+
 }

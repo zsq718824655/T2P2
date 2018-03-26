@@ -31,8 +31,11 @@
 <body>
  		<div class="page-bar">
 			<ul class="page-num-ul clearfix">
-				<li>共${param.totalCount }条记录&nbsp;&nbsp; ${param.currentPageNo }/${param.totalPageCount }页</li>
-				<c:if test="${param.currentPageNo > 1}">
+			<div class="text-left col-md-3 col-sm-5">
+			<li>共${param.totalCount }条记录&nbsp;&nbsp; ${param.currentPageNo }/${param.totalPageCount }页</li>
+			</div>
+			<div class="text-right col-md-4  col-sm-7 col-sm-offset-5">
+			<c:if test="${param.currentPageNo > 1}">
 					<a href="javascript:page_nav(document.forms[0],1);">首页</a>
 					<a href="javascript:page_nav(document.forms[0],${param.currentPageNo-1});">上一页</a>
 				</c:if>
@@ -40,6 +43,8 @@
 					<a href="javascript:page_nav(document.forms[0],${param.currentPageNo+1 });">下一页</a>
 					<a href="javascript:page_nav(document.forms[0],${param.totalPageCount });">最后一页</a>
 				</c:if>
+			</div>
+				
 				&nbsp;&nbsp;
 			</ul>
 		<!--  <span class="page-go-form"><label>跳转至</label>
