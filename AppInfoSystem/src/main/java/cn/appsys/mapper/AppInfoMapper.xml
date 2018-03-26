@@ -380,8 +380,37 @@
   
   </select>
   
+  <select id="getByIdAPP" parameterType="Long" resultMap="BaseResultMap">
+  SELECT * FROM app_info WHERE id=#{appId}
+  </select>
   
-  
+  <update id="saveAPPInfo" parameterType="cn.appsys.pojo.AppInfo">
+    update app_info
+    set softwareName = #{softwarename,jdbcType=VARCHAR},
+      APKName = #{apkname,jdbcType=VARCHAR},
+      supportROM = #{supportrom,jdbcType=VARCHAR},
+      interfaceLanguage = #{interfacelanguage,jdbcType=VARCHAR},
+      softwareSize = #{softwaresize,jdbcType=DECIMAL},
+      updateDate = #{updatedate,jdbcType=DATE},
+      devId = #{devid,jdbcType=BIGINT},
+      appInfo = #{appinfo,jdbcType=VARCHAR},
+      status = #{status,jdbcType=BIGINT},
+      onSaleDate = #{onsaledate,jdbcType=TIMESTAMP},
+      offSaleDate = #{offsaledate,jdbcType=TIMESTAMP},
+      flatformId = #{flatformid,jdbcType=BIGINT},
+      categoryLevel3 = #{categorylevel3,jdbcType=BIGINT},
+      downloads = #{downloads,jdbcType=BIGINT},
+      createdBy = #{createdby,jdbcType=BIGINT},
+      creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      modifyBy = #{modifyby,jdbcType=BIGINT},
+      modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      categoryLevel1 = #{categorylevel1,jdbcType=BIGINT},
+      categoryLevel2 = #{categorylevel2,jdbcType=BIGINT},
+      logoPicPath = #{logopicpath,jdbcType=VARCHAR},
+      logoLocPath = #{logolocpath,jdbcType=VARCHAR},
+      versionId = #{versionid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
   
   
   

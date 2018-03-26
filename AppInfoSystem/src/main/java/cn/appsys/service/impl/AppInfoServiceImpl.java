@@ -32,5 +32,21 @@ public class AppInfoServiceImpl implements AppInfoService {
 		apps=appInfoMapper.queryPageList(queryBean,currentStartPage,pageSize);
 		return apps;
 	}
+	@Override
+	public AppInfo getByIdAPP(Long appId) {
+		AppInfo appinfo=null;
+		appinfo=appInfoMapper.getByIdAPP(appId);
+		return appinfo;
+	}
+	@Override
+	public boolean saveAppInfo(AppInfo appinfo) {
+		int i=appInfoMapper.saveAPPInfo(appinfo);
+		if(i>0) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
 
 }

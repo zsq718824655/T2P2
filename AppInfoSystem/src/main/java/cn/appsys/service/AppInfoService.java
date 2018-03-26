@@ -11,4 +11,8 @@ public interface AppInfoService {
 
 	List<AppInfo> appInfoList(DevQueryBean queryBean, int pageSize);
 
+	AppInfo getByIdAPP(Long appId);
+
+	boolean saveAppInfo(AppInfo appinfo);
+
 }

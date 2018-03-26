@@ -153,7 +153,7 @@
  
    <select id="getByStatusId" parameterType="Long" resultType="String">
   SELECT valueName FROM data_dictionary 
-  WHERE typeCode = "PUBLISH_STATUS" AND valueId =#{dvId}
+  WHERE typeCode = "APP_STATUS" AND valueId =#{dvId}
   </select>
   
 	  <select id="getAllStatus" resultMap="BaseResultMap">

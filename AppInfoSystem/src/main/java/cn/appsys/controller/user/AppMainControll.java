@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import cn.appsys.pojo.AppCategroy;
 import cn.appsys.pojo.AppInfo;
@@ -138,6 +140,49 @@ public class AppMainControll {
     	
 		return oneAllCategroy;
 		
+	}
+	
+	@RequestMapping("/toUpdateApp")
+	public String toupdateView(Long appId,Model model){
+		//获取该app的对象
+		AppInfo appinfo=appInfoService.getByIdAPP(appId);
+		//所有的一级分类
+    	List<AppCategroy> oneAllCategroy=	appCatagroyService.getTwoCatagroy(0);
+		//二
+    	List<AppCategroy> twoAllCategroy=	appCatagroyService.getTwoCatagroy(appinfo.getCategorylevel1().intValue());
+    	//三
+    	List<AppCategroy> threeAllCategroy=	appCatagroyService.getTwoCatagroy(appinfo.getCategorylevel2().intValue());
+    	//所属状态
+		String statusName= dataDictionaryService.getByStatusId(appinfo.getStatus());
+		/*//所属平台
+		String	platName=dataDictionaryService.getByDataId(appinfo.getFlatformid());*/
+		//条件的所有所属平台
+    	List<DataDictionary> allplat=	dataDictionaryService.getAllplatNames();
+		
+		
+		
+		model.addAttribute("appinfo",appinfo);
+		model.addAttribute("oneAllCategroy",oneAllCategroy);
+		model.addAttribute("twoAllCategroy",twoAllCategroy);
+		model.addAttribute("threeAllCategroy",threeAllCategroy);
+		model.addAttribute("statusName",statusName);
+		
+		model.addAttribute("allplat",allplat);
+		
+		
+    	System.out.println("================");
+		return "updateApp";
+		
+	}
+	
+	
+	//保存修改
+	@RequestMapping("/editSaveApp")
+	public String editSaveAPP( AppInfo appinfo,@RequestParam("logolocpathPic") MultipartFile logolocpathPic) {
+		
+	boolean flag=	appInfoService.saveAppInfo(appinfo);
+	System.out.println("========"+flag);
+		return "redirect:/appMaintenanceView";
 	}
 	
 	

@@ -24,6 +24,10 @@ public interface AppInfoMapper {
 	int getAppInfoCount(DevQueryBean queryBean);
 	//∑÷“≥≤È—Ø
 	List<AppInfo> queryPageList(@Param("queryBean") DevQueryBean queryBean, @Param("currentStartPage")int currentStartPage,  @Param("pageSize")int pageSize);
+
+	AppInfo getByIdAPP(Long appId);
+
+	int saveAPPInfo(AppInfo appinfo);
 	
 	
 	
