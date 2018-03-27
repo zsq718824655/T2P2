@@ -254,7 +254,7 @@ public class AppMainControll {
 		
     	model.addAttribute("allplat",allplat );
     	model.addAttribute("oneAllCategroy",oneAllCategroy);
-		return "addApp";
+		return "addAppS";
 	}
 	
 	
