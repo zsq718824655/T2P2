@@ -148,7 +148,7 @@
  				<td class="col-md-2">${categoryNames[varstu.index]}</td>
  				<td class="col-md-1">${status[varstu.index]}</td>
  				<td class="col-md-1">${appInfo.downloads }</td>
- 				<td class="col-md-1">11111</td>
+ 				<td class="col-md-1">${appVersions[varstu.index].versionno } </td>
  					<td class="col-md-2 text-center">
  				
  				<div class="btn-group">
@@ -157,7 +157,7 @@
 					  </button>
 					  <ul class="dropdown-menu">
 					  
-					    <li><a href="#">新增版本</a></li>
+					    <li><a href="${pageContext.request.contextPath }/toVersionView?appId=${appInfo.id}">新增版本</a></li>
 					    <li><a href="#">修改版本</a></li>
 					    <!--${pageContext.request.contextPath }/toUpdateApp?appId=${appInfo.id }  -->
 					      <li><a  onclick="editApp(${appInfo.id },${appInfo.status },'${status[varstu.index]}')">修改</a></li>

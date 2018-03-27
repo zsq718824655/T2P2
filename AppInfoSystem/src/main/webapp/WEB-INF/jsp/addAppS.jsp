@@ -18,7 +18,7 @@
   <div class="form-group">
     <label  class="col-sm-2 control-label">APK名称</label>
     <div class="col-sm-4 col-md-4" >
-      <input type="text" name="apkname"  class="form-control apkAscViladate" >
+      <input type="text" required="required" name="apkname"  class="form-control apkAscViladate" >
     </div>
     <label class="control-label apkNameLable"></label>
    

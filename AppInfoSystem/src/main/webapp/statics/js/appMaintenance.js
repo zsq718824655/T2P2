@@ -132,13 +132,19 @@ function EditSave() {
 //保存
 
 function saveApps() {
-	alert("tesxt");
+	
 	if(apkViladate){
-		alert("wsmle");
+		
 		$("#saveAPPforms").submit();
 		
 	}else{
-		alert("apk名字已经被用");
+		alert("apk名字已经被用!");
+		$("#saveAPPforms").submit(
+				function()
+				{
+					return false;
+				}
+		);
 	}
 	
 }

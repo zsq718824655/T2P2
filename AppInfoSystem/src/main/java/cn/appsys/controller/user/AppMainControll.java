@@ -22,10 +22,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import cn.appsys.pojo.AppCategroy;
 import cn.appsys.pojo.AppInfo;
+import cn.appsys.pojo.AppVersion;
 import cn.appsys.pojo.DataDictionary;
 import cn.appsys.pojo.DevUser;
 import cn.appsys.service.AppCategroyService;
 import cn.appsys.service.AppInfoService;
+import cn.appsys.service.AppVersionService;
 import cn.appsys.service.DataDictionaryService;
 import cn.appsys.service.DevUserService;
 import cn.appsys.utils.Constants;
@@ -46,7 +48,8 @@ public class AppMainControll {
 	private DataDictionaryService dataDictionaryService;
 	@Autowired
 	private AppCategroyService appCatagroyService;
-	
+	@Autowired
+	private AppVersionService appVersionService;
 	//去维护页面,查询
 	@RequestMapping("/appMaintenanceView")
 	public String goMaintence(DevQueryBean queryBean,Model model) {
@@ -105,6 +108,10 @@ public class AppMainControll {
     	List<String> categoryNames=new ArrayList<>();
     	//所属状态
     	List<String> status=new ArrayList<>();
+    	
+    	//所属的最新版本
+    	List<AppVersion> appVersions=new ArrayList<AppVersion>();
+    	
     	for(AppInfo appinfo:list) {
     		//所属平台
     		platName=dataDictionaryService.getByDataId(appinfo.getFlatformid());
@@ -117,7 +124,9 @@ public class AppMainControll {
     		//所属状态
     		String statusName= dataDictionaryService.getByStatusId(appinfo.getStatus());
     		status.add(statusName);
-    		
+    		//获得最新版本
+    		AppVersion appVersion=appVersionService.getNewVersion(appinfo.getId());
+    		appVersions.add(appVersion);
     	}
     	
     	
@@ -127,6 +136,9 @@ public class AppMainControll {
     	List<DataDictionary> allplat=	dataDictionaryService.getAllplatNames();
     	//所有的一级分类
     	List<AppCategroy> oneAllCategroy=	appCatagroyService.getAllCatagroy(0);
+    	
+    	
+    	
     	
     	model.addAttribute("list", list);
     	model.addAttribute("platNames",platNames );
@@ -139,7 +151,7 @@ public class AppMainControll {
     	model.addAttribute("allStatus", allStatus);
     	model.addAttribute("allplat", allplat);
     	model.addAttribute("oneAllCategroy",oneAllCategroy);
-    	
+    	model.addAttribute("appVersions",appVersions);
 		return "appMaintenance";
 	}
 	

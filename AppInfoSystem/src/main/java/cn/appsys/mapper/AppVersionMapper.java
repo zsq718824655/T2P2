@@ -14,4 +14,6 @@ public interface AppVersionMapper {
     int updateByPrimaryKeySelective(AppVersion record);
 
     int updateByPrimaryKey(AppVersion record);
+
+	AppVersion getNewVersion(Long id);
 }

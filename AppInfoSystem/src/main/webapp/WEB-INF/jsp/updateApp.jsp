@@ -59,7 +59,7 @@
   </div><div class="form-group">
     <label  class="col-sm-2 control-label">一级分类</label>
     <div class="col-sm-4 col-md-4">
-      <select name="categorylevel1" class="form-control">
+      <select name="categorylevel1" class="form-control oneType">
        <c:forEach items="${oneAllCategroy }" var="oneType">
       <option  value="${oneType.id }" <c:if test="${oneType.id ==appinfo.categorylevel1 }">selected="selected"</c:if>  >${oneType.categoryname }</option>
       </c:forEach>
@@ -69,7 +69,7 @@
   </div><div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">二级分类</label>
     <div class="col-sm-4 col-md-4">
-    <select name="categorylevel2" class="form-control">
+    <select name="categorylevel2" class="form-control twoType">
        <c:forEach items="${twoAllCategroy }" var="twoType">
       <option  value="${twoType.id }" <c:if test="${twoType.id ==appinfo.categorylevel2 }">selected="selected"</c:if>  >${twoType.categoryname }</option>
       </c:forEach>
@@ -80,7 +80,7 @@
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">三级级分类</label>
     <div  class="col-sm-4 col-md-4">
-    <select name="categorylevel3" class="form-control">
+    <select name="categorylevel3" class="form-control threeType">
       <c:forEach items="${threeAllCategroy }" var="threeType">
       <option  value="${threeType.id }" <c:if test="${threeType.id ==appinfo.categorylevel3 }">selected="selected"</c:if>  >${threeType.categoryname }</option>
       </c:forEach>

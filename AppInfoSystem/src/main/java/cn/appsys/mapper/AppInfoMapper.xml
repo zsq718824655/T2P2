@@ -402,7 +402,7 @@
       categoryLevel3 = #{categorylevel3,jdbcType=BIGINT},
       downloads = #{downloads,jdbcType=BIGINT},
       createdBy = #{createdby,jdbcType=BIGINT},
-      creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      
       modifyBy = #{modifyby,jdbcType=BIGINT},
       modifyDate = #{modifydate,jdbcType=TIMESTAMP},
       categoryLevel1 = #{categorylevel1,jdbcType=BIGINT},

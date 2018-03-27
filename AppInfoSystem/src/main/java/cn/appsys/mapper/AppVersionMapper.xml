@@ -185,4 +185,13 @@
       apkFileName = #{apkfilename,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  
+  <select id="getNewVersion" parameterType="Long" resultMap="BaseResultMap">
+   SELECT * FROM app_version WHERE appId=#{appid} ORDER BY id DESC LIMIT 1;
+  </select>
+  
+  
+  
+  
 </mapper>
