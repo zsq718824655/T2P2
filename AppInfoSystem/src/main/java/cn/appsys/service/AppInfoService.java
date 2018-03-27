@@ -17,4 +17,8 @@ public interface AppInfoService {
 
 	boolean updatePicPath(Long appId);
 
+	boolean insertAppInfo(AppInfo appinfo);
+
+	boolean findapkName(String apkName);
+
 }

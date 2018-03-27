@@ -1,9 +1,13 @@
 package cn.appsys.controller.user;
 
+import static org.junit.Assert.fail;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import cn.appsys.pojo.AppCategroy;
 import cn.appsys.pojo.AppInfo;
 import cn.appsys.pojo.DataDictionary;
+import cn.appsys.pojo.DevUser;
 import cn.appsys.service.AppCategroyService;
 import cn.appsys.service.AppInfoService;
 import cn.appsys.service.DataDictionaryService;
@@ -183,12 +188,15 @@ public class AppMainControll {
 	
 	//保存修改
 	@RequestMapping("/editSaveApp")
-	public String editSaveAPP(Model model,HttpSession session, AppInfo appinfo,@RequestParam("logolocpathPic") MultipartFile attach) {
+	public String editSaveAPP(Model model,HttpSession session, AppInfo appinfo,@RequestParam(value="logolocpathPic",required=false) MultipartFile attach) {
 		appinfo.setModifydate(new Date());
 		
 		String idPicPath = null;
 		String path="d:\\appPic";
 		//判断文件是否为空
+		if(attach!=null) {
+			
+		
 		if(!attach.isEmpty()){
 			 
 			String oldFileName = attach.getOriginalFilename();//原文件名
@@ -196,7 +204,7 @@ public class AppMainControll {
 			int filesize = 500000;
 	        if(attach.getSize() >  filesize){//上传大小不得超过 500k
 	        	model.addAttribute("uploadFileError", " * 上传大小不得超过 500k");
-	        	//return "useradd";
+	        	return "forward:/picError";
             }else if(prefix.equalsIgnoreCase("jpg") || prefix.equalsIgnoreCase("png") 
             		|| prefix.equalsIgnoreCase("jpeg") || prefix.equalsIgnoreCase("pneg")){//上传图片格式不正确
             	String fileName = System.currentTimeMillis()+"."+FilenameUtils.getExtension(oldFileName);  
@@ -211,15 +219,15 @@ public class AppMainControll {
                 } catch (Exception e) {  
                     e.printStackTrace();  
                    model.addAttribute("uploadFileError", " * 上传失败！");
-                    return "useradd";
+                    return "forward:/picError";
                 }  
                 idPicPath = path+File.separator+fileName;
             }else{
             	model.addAttribute("uploadFileError", " * 上传图片格式不正确");
-            	return "useradd";
+            	return "forward:/picError";
             }
 		}
-		
+		}
 		
 		
 		
@@ -234,5 +242,96 @@ public class AppMainControll {
 	boolean flag=	appInfoService.updatePicPath(appId);
 	}
 	
+	
+	//去增加app页面
+	@RequestMapping("/toaddAppInfoView")
+	public String addAppInfoView(Model model) {
+		
+		//条件的所有所属平台
+    	List<DataDictionary> allplat=	dataDictionaryService.getAllplatNames();
+    	//所有的一级分类
+    	List<AppCategroy> oneAllCategroy=	appCatagroyService.getAllCatagroy(0);
+		
+    	model.addAttribute("allplat",allplat );
+    	model.addAttribute("oneAllCategroy",oneAllCategroy);
+		return "addApp";
+	}
+	
+	
+	//增加一个app
+	@RequestMapping("/addAPPInfo")
+	public String addAppInfo(Model model,HttpSession session, AppInfo appinfo,@RequestParam("logolocpathPic") MultipartFile attach) {
+		String idPicPath = null;
+		appinfo.setCreatedby(((DevUser)session.getAttribute(Constants.USER_SESSION)).getId());
+		appinfo.setCreationdate(new Date());
+		appinfo.setDevid(((DevUser)session.getAttribute(Constants.USER_SESSION)).getId());
+		String path="d:\\appPic";
+		//判断文件是否为空
+		if(attach!=null) {
+			
+		
+		if(!attach.isEmpty()){
+			 
+			String oldFileName = attach.getOriginalFilename();//原文件名
+			String prefix=FilenameUtils.getExtension(oldFileName);//原文件后缀     
+			int filesize = 500000;
+	        if(attach.getSize() >  filesize){//上传大小不得超过 500k
+	        	model.addAttribute("uploadFileError", " * 上传大小不得超过 500k");
+	        	return "forward:/picError";
+            }else if(prefix.equalsIgnoreCase("jpg") || prefix.equalsIgnoreCase("png") 
+            		|| prefix.equalsIgnoreCase("jpeg") || prefix.equalsIgnoreCase("pneg")){//上传图片格式不正确
+            	String fileName = System.currentTimeMillis()+"."+FilenameUtils.getExtension(oldFileName);  
+                File targetFile = new File(path, fileName);  
+                if(!targetFile.exists()){  
+                    targetFile.mkdirs();  
+                }  
+                //保存  
+                try {  
+                	appinfo.setLogolocpath(fileName);
+                	attach.transferTo(targetFile);  
+                } catch (Exception e) {  
+                    e.printStackTrace();  
+                   model.addAttribute("uploadFileError", " * 上传失败！");
+                    return "forward:/picError";
+                }  
+                idPicPath = path+File.separator+fileName;
+            }else{
+            	model.addAttribute("uploadFileError", " * 上传图片格式不正确");
+            	 return "forward:/picError";
+            }
+		
+	
+	}
+		}	
+		//保存
+		boolean flag=appInfoService.insertAppInfo(appinfo);
+		return "redirect:/appMaintenanceView";
+}
+	
+	
+	//去图片错误的页面
+	@RequestMapping("/picError")
+	public String toErroPic() {
+		
+		return "picError";
+	}
+	
+	
+	//验证apk的唯一
+	@RequestMapping("/apkNameValidate")
+	public @ResponseBody Map<String,String> apkNameValidate(String apkName){
+		Map<String,String> map=new HashMap<String,String>();
+	boolean flag=appInfoService.findapkName(apkName);
+		if(!flag) {
+			map.put("flaginfo","可以使用");
+			map.put("flag","true");
+		}else {
+			map.put("flaginfo", "该名字已经被使用,请换其他的");
+			map.put("flag", "flase");
+		}
+		return map;
+		
+		
+	}
 	
 }

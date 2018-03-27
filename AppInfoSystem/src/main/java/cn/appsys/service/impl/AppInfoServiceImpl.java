@@ -58,5 +58,24 @@ public class AppInfoServiceImpl implements AppInfoService {
 	}
 		
 	}
+	@Override
+	public boolean insertAppInfo(AppInfo appinfo) {
+		int i=	appInfoMapper.insertAppInfo(appinfo);
+		if(i>0) {
+			return true;
+		}else {
+			return false;	
+		}
+	}
+	@Override
+	public boolean findapkName(String apkName) {
+	int i=	appInfoMapper.findapkName(apkName);
+	if(i>0) {
+		return true;
+	}else {
+		return false;	
+	}
+		
+	}
 
 }

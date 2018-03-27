@@ -129,6 +129,19 @@ function EditSave() {
 	$("#editFormAPP").submit();
 }
 
+//保存
+
+function saveApps() {
+	alert("tesxt");
+	if(apkViladate){
+		alert("wsmle");
+		$("#saveAPPforms").submit();
+		
+	}else{
+		alert("apk名字已经被用");
+	}
+	
+}
 
 //点击删除时候
 function dletPic(appid){
@@ -156,5 +169,50 @@ function dletPic(appid){
 	}
 	
 }
+
+
+//去增加app页面
+$(".addAPPView").on("click",function(){
+	
+	 window.location.href="toaddAppInfoView";
+	 
+});
+
+//验证是否通过
+var apkViladate=false;
+
+//对apk的验证
+$(".apkAscViladate").on("blur",function(){
+	
+	var apkVal=$(this).val();
+	$.ajax({
+		type:"GET",//请求类型
+		url:"apkNameValidate",//请求的url
+		data:{apkName:apkVal},
+		dataType:"json",//ajax接口（请求url）返回的数据类型
+		success:function(data){//data：返回数据（json对象）
+			if(data.flag=="true"){
+				$(".apkNameLable").html(data.flaginfo);
+				apkViladate=true;
+			}else{
+				$(".apkNameLable").html("<font color='red'>"+data.flaginfo+"</font>");
+				apkViladate=false;
+			}
+			
+			}
+		}
+	
+	);
+	
+})
+
+
+
+
+
+
+
+
+
 
 

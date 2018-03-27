@@ -43,7 +43,7 @@
     delete from app_info
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="cn.appsys.pojo.AppInfo">
+  <insert id="insertAppInfo" parameterType="cn.appsys.pojo.AppInfo">
     insert into app_info (id, softwareName, APKName, 
       supportROM, interfaceLanguage, softwareSize, 
       updateDate, devId, appInfo, 
@@ -430,7 +430,12 @@
   </update>
   
   
+  <insert id="">
   
+  </insert>
   
+  <select id="findapkName" parameterType="String" resultType="Integer">
   
+  select count(*) from app_info where APKName=#{apkName}
+  </select>
 </mapper>

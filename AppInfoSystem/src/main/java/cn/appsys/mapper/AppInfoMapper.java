@@ -10,8 +10,7 @@ import cn.appsys.utils.DevQueryBean;
 public interface AppInfoMapper {
     int deleteByPrimaryKey(Long id);
 
-    int insert(AppInfo record);
-
+    
     int insertSelective(AppInfo record);
 
     AppInfo selectByPrimaryKey(Long id);
@@ -30,6 +29,11 @@ public interface AppInfoMapper {
 	int saveAPPInfo(AppInfo appinfo);
 
 	int updatePicPath(Long appId);
+
+	int insertAppInfo(AppInfo appinfo);
+
+
+	int findapkName(String apkName);
 	
 	
 	

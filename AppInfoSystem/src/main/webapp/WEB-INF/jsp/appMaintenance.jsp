@@ -122,7 +122,7 @@
               <div class="dashboard_graph">
 			
 			<div class="row"> 
-              <input type="button" class="btn btn-success btn-sm"  value="新增app基础信息"/>
+              <input type="button" class="btn btn-success btn-sm addAPPView"  value="新增app基础信息"/>
             </div>
 			
 			<table class="table table-bordered">

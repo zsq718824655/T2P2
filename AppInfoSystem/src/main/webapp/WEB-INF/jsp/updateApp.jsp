@@ -13,7 +13,7 @@
     <div class="col-sm-4 col-md-4">
       <input type="text" name="softwarename" value="${appinfo.softwarename }" class="form-control" id="appName" required="required">
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div>
   <div class="form-group">
     <label  class="col-sm-2 control-label">APK名称</label>
@@ -27,25 +27,25 @@
     <div class="col-sm-4 col-md-4">
       <input type="text" name="supportrom" value="${appinfo.supportrom }" class="form-control" id="romlab" required="required">
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div><div class="form-group">
     <label for="langLab" class="col-sm-2 control-label">界面语言</label>
     <div class="col-sm-4 col-md-4">
       <input type="text" name="interfacelanguage" value="${appinfo.interfacelanguage }" class="form-control" id="langLab" required="required">
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div><div class="form-group">
     <label for="appSize" class="col-sm-2 control-label">软件大小</label>
     <div class="col-sm-4 col-md-4">
       <input name="softwaresize" type="number" value="${appinfo.softwaresize }" class="form-control" id="appSize" required="required" >
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div><div class="form-group">
     <label for="downNum" class="col-sm-2 control-label">下载次数</label>
     <div class="col-sm-4 col-md-4">
-      <input name="downloads" type="number" value="${appinfo.downloads }" class="form-control" id="downNum" >
+      <input required="required" name="downloads" type="number" value="${appinfo.downloads }" class="form-control" id="downNum" >
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div><div class="form-group">
     <label  class="col-sm-2 control-label">所属平台</label>
     <div class="col-sm-4 col-md-4">
@@ -55,7 +55,7 @@
       </c:forEach>
       </select>
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div><div class="form-group">
     <label  class="col-sm-2 control-label">一级分类</label>
     <div class="col-sm-4 col-md-4">
@@ -65,7 +65,7 @@
       </c:forEach>
       </select>
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div><div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">二级分类</label>
     <div class="col-sm-4 col-md-4">
@@ -75,7 +75,7 @@
       </c:forEach>
       </select>
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div>
   <div class="form-group">
     <label for="inputEmail3" class="col-sm-2 control-label">三级级分类</label>
@@ -86,7 +86,7 @@
       </c:forEach>
       </select>
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div>
   
   <div class="form-group">
@@ -94,7 +94,7 @@
     <div class="col-sm-4 col-md-4">
       <input  name="status" type="text" value="${statusName }" class="form-control appStatusEdit" readonly="readonly" >
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div>
   
   <div class="form-group">
@@ -102,7 +102,7 @@
     <div class="col-sm-4 col-md-4">
      <textarea name="appinfo"  class="form-control" rows="5">${appinfo.appinfo }</textarea>
     </div>
-      <label class="control-label" >提示信息</label>
+      
   </div>
   
  
@@ -123,7 +123,7 @@
     </c:otherwise>
     </c:choose>
     </div>
-      <!-- <label class="control-label" >提示信息</label> -->
+      <!--  -->
   </div>
   
   
