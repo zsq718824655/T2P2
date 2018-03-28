@@ -42,5 +42,11 @@ public class DataDictionaryServiceImpl implements DataDictionaryService{
 		return list;
 		
 	}
+	@Override
+	public String getpublishStatu(Long publishstatus) {
+		String name=null;
+		name=dictionaryMapper.getpublishStatu(publishstatus);
+		return name;
+	}
 
 }

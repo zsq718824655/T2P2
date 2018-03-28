@@ -26,7 +26,7 @@
  				<tr class="row">
  				<td class="col-md-2">${appInfo.softwarename }</td>
  				<td class="col-md-2">${appVersion.versionno }</td>
- 				<td class="col-md-2">${appInfo.softwaresize }</td>
+ 				<td class="col-md-2">${appVersion.versionsize }</td>
  				<td class="col-md-2">${publishNames[varstu.index] }</td>
  				<td class="col-md-2">${appVersion.apkfilename }</td>
  				<td class="col-md-2">
@@ -55,7 +55,7 @@
 		 <div class="form-group">
 		    <label  class="col-sm-2 control-label">版本号</label>
 		    <div class="col-sm-4 col-md-4" >
-		      <input type="text" placeholder="请输入版本号" required="required" name="versionno"  class="form-control" >
+		      <input type="text" readonly="readonly" value="${appVersions[0].versionno}" placeholder="请输入版本号" required="required" name="versionno"  class="form-control" >
 		    </div>
 		    <label class="control-label apkNameLable"></label>
 		   
@@ -64,7 +64,7 @@
 		<div class="form-group">
 		    <label  class="col-sm-2 control-label">版本大小</label>
 		    <div class="col-sm-4 col-md-4" >
-		      <input type="number" placeholder="请输入版本的大小单位(mb)" required="required" name="versionsize"  class="form-control" >
+		      <input type="number"  value="${appVersions[0].versionsize}" placeholder="请输入版本的大小单位(mb)" required="required" name="versionsize"  class="form-control" >
 		    </div>
 		    <label class="control-label apkNameLable"></label>
 		   
@@ -73,8 +73,8 @@
 			<div class="form-group">
 		    <label  class="col-sm-2 control-label">发布状态</label>
 		    <div class="col-sm-4 col-md-4" >
-		     <label class="control-label apkNameLable">预发布</label>
-		      <input type="hidden" required="required" name="publishstatus" value="3" class="form-control"  readonly="readonly">
+		     <!-- <label class="control-label apkNameLable">预发布</label> -->
+		      <input type="hidden" value="${publishNames[0] }" required="required" name="publishstatus" value="3" class="form-control"  readonly="readonly">
 		    </div>
 		    <label class="control-label apkNameLable"></label>
 		   
@@ -82,7 +82,7 @@
 		  <div class="form-group">
 		    <label  class="col-sm-2 control-label">版本简介</label>
 		   <div class="col-sm-4 col-md-4">
-     	<textarea name="versioninfo"  class="form-control" placeholder="简介"  rows="3"></textarea>
+     	<textarea name="versioninfo"  class="form-control"  placeholder="简介"  rows="3">${appVersions[0].versioninfo}</textarea>
     		</div>
 		    <label class="control-label apkNameLable"></label>
 		   

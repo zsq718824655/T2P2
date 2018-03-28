@@ -212,7 +212,18 @@ $(".apkAscViladate").on("blur",function(){
 	
 })
 
-
+//修改版本
+function updateVersion(status,statusName,isversion,appid){
+	if(isversion==null|| isversion==""){
+		alert("你还没有添加版本了,去添加");
+	}
+	else if(status==1|| status==3){
+		
+		 window.location.href="toupdateVersionView?appid="+appid;
+	}else {
+		alert("状态为["+statusName+"],不能修改");
+	}
+}
 
 
 

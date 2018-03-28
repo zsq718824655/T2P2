@@ -133,4 +133,8 @@ public class AppVersion {
     public void setApkfilename(String apkfilename) {
         this.apkfilename = apkfilename == null ? null : apkfilename.trim();
     }
+
+	
+
+	
 }

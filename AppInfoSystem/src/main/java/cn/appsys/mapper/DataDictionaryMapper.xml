@@ -163,6 +163,8 @@
     <select id="getAllplatNames" resultMap="BaseResultMap">
  	SELECT * FROM data_dictionary WHERE typeCode="APP_FLATFORM"
  	 </select>
-  
-  
+ 
+   <select id="getpublishStatu" parameterType="Long" resultType="String">
+ 	SELECT valueName FROM data_dictionary WHERE valueId =#{PPID} AND typeCode="PUBLISH_STATUS"
+ 	 </select>
 </mapper>

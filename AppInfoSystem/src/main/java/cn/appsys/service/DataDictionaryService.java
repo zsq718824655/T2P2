@@ -15,6 +15,7 @@ public interface DataDictionaryService {
 	String getByStatusId(Long status);
 	List<DataDictionary> getAllStatus();
 	List<DataDictionary> getAllplatNames();
+	String getpublishStatu(Long publishstatus);
 
 	
 }
