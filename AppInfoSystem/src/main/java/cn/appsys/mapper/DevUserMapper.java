@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import cn.appsys.pojo.DevUser;
 
 public interface DevUserMapper {
-    int deleteByPrimaryKey(Long id);
+   /* int deleteByPrimaryKey(Long id);*/
 
     int insert(DevUser record);
 

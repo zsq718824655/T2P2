@@ -23,10 +23,10 @@
     from dev_user
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+ <!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from dev_user
     where id = #{id,jdbcType=BIGINT}
-  </delete>
+  </delete> -->
   <insert id="insert" parameterType="cn.appsys.pojo.DevUser">
     insert into dev_user (id,devCode, devName, 
       devPassword, devEmail, devInfo, 
