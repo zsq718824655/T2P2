@@ -342,8 +342,16 @@ public class AppMainControll {
 			map.put("flag", "flase");
 		}
 		return map;
-		
-		
 	}
+	
+	
+	//²é¿´
+		@RequestMapping("/showAppInfo")
+		public  String getByIdAPP(Long appId,Model model){
+			AppInfo showAppInfo=appInfoService.getByIdAPP(appId);
+			System.out.println("appId======"+appId);
+			model.addAttribute("showAppInfo", showAppInfo);
+			return"showAppInfo";
+		}
 	
 }

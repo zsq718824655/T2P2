@@ -161,7 +161,7 @@
 					    <li><a href="#">修改版本</a></li>
 					    <!--${pageContext.request.contextPath }/toUpdateApp?appId=${appInfo.id }  -->
 					      <li><a  onclick="editApp(${appInfo.id },${appInfo.status },'${status[varstu.index]}')">修改</a></li>
-					     <li><a href="#">查看</a></li>
+					     <li><a href="${pageContext.request.contextPath }/showAppInfo?appId=${appInfo.id}">查看</a></li>
 					  
 					  <li><a href="#">上架/下架</a></li>
 					  <li><a href="#">删除</a></li>

@@ -380,7 +380,7 @@
   
   </select>
   
-  <select id="getByIdAPP" parameterType="Long" resultMap="BaseResultMap">
+  <select id="getByIdAPP" parameterType="Long" resultType="cn.appsys.pojo.AppInfo">
   SELECT * FROM app_info WHERE id=#{appId}
   </select>
   
@@ -438,4 +438,5 @@
   
   select count(*) from app_info where APKName=#{apkName}
   </select>
+  
 </mapper>
