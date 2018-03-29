@@ -49,7 +49,7 @@
               <div class="dashboard_graph" style="height: 800px">
 		<label class="control-label apkNameLable">新增版本号信息</label>
 		
-		<form  id="saveAPPforms" class="form-horizontal " action="${pageContext.request.contextPath }/addVesion" method="post" enctype="multipart/form-data">
+		<form  id="saveAPPforms" class="form-horizontal " action="${pageContext.request.contextPath }/editVesion" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="appid" value="${appInfo.id }"/>
 		
 		 <div class="form-group">
@@ -91,8 +91,19 @@
 		<div class="form-group">
 		    <label  class="col-sm-2 control-label">apk文件</label>
 		    <div class="col-sm-4 col-md-4" >
-		      <input  type="file" required="required" name="apkFileUp"  class="apkAscViladate" >
-		    </div>
+		    
+		    <c:choose>
+		    <c:when test="${appVersions[0].apkfilename!=null and appVersions[0].apkfilename!='' }">
+		<label class="control-label apkNameLable">${appVersions[0].apkfilename }</label>&nbsp;&nbsp;&nbsp;<a style="cursor:pointer" style="vertical-align: middle;"  onclick="dletAPKfileName(${appVersions[0].id})">删除</a>
+		    </c:when>
+		    <c:otherwise>
+		  	<input type="file"  name="apkFileUp" class="form-control"  required="required">
+		    </c:otherwise>
+		    </c:choose>
+    </div>
+		    
+		 
+		   
 		    <label class="control-label apkNameLable"></label>
 		   
 		  </div>
@@ -125,7 +136,7 @@
         </footer>
         <!-- /footer content -->
       
-    
+    <script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/appMaintenance.js"></script>
     </body>
 </html>
 

@@ -226,7 +226,9 @@ function updateVersion(status,statusName,isversion,appid){
 }
 
 
-
+function dletAPKfileName(versionId){
+	alert(versionId);
+}
 
 
 
