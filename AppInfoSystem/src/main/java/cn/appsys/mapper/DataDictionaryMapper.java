@@ -25,4 +25,6 @@ public interface DataDictionaryMapper {
 	List<DataDictionary> getAllStatus();
 
 	List<DataDictionary> getAllplatNames();
+
+	String getpublishStatu(Long publishstatus);
 }

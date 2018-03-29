@@ -11,14 +11,14 @@
   <div class="form-group">
     <label for="appName" class="col-sm-2 control-label">软件名称</label>
     <div class="col-sm-4 col-md-4">
-      <input type="text" name="softwarename"  class="form-control" id="appName" required="required">
+      <input type="text" name="softwarename" placeholder="请输入软件的名称"  class="form-control" id="appName" required="required">
     </div>
      <!--  <label class="control-label" >提示信息</label> --> 
   </div>
   <div class="form-group">
     <label  class="col-sm-2 control-label">APK名称</label>
     <div class="col-sm-4 col-md-4" >
-      <input type="text" required="required" name="apkname"  class="form-control apkAscViladate" >
+      <input type="text" required="required" placeholder="请输入APK名称" name="apkname"  class="form-control apkAscViladate" >
     </div>
     <label class="control-label apkNameLable"></label>
    
@@ -26,13 +26,13 @@
   <div class="form-group">
     <label for="romlab" class="col-sm-2 control-label">支持ROM</label>
     <div class="col-sm-4 col-md-4">
-      <input type="text" name="supportrom"  class="form-control" id="romlab" required="required">
+      <input type="text" name="supportrom" placeholder="请输入支持ROM" class="form-control" id="romlab" required="required">
     </div>
       <label class="control-label" ></label>
   </div><div class="form-group">
     <label for="langLab" class="col-sm-2 control-label">界面语言</label>
     <div class="col-sm-4 col-md-4">
-      <input type="text" name="interfacelanguage"  class="form-control" id="langLab" required="required">
+      <input type="text" name="interfacelanguage" placeholder="请输入界面语言"  class="form-control" id="langLab" required="required">
     </div>
       <label class="control-label" ></label>
   </div><div class="form-group">
@@ -44,7 +44,7 @@
   </div><div class="form-group">
     <label for="downNum" class="col-sm-2 control-label">下载次数</label>
     <div class="col-sm-4 col-md-4">
-      <input required="required" name="downloads" type="number"  class="form-control loadSizes" id="downNum" >
+      <input required="required" name="downloads" type="number" placeholder="请输入下载次数"  class="form-control loadSizes" id="downNum" >
     </div>
      <!--  <label class="control-label" >提示信息</label> -->
   </div><div class="form-group">
@@ -112,7 +112,7 @@
   <div class="form-group">
     <label for="appInfo" class="col-sm-2 control-label">应用简介</label>
     <div class="col-sm-4 col-md-4">
-     <textarea name="appinfo"  class="form-control" rows="5"></textarea>
+     <textarea placeholder="请输入本软件的相关信息，本信息作为软件的详细信息" name="appinfo"  class="form-control" rows="5"></textarea>
     </div>
      <!--  <label class="control-label" >提示信息</label> -->
   </div>

@@ -158,7 +158,7 @@
 					  <ul class="dropdown-menu">
 					  
 					    <li><a href="${pageContext.request.contextPath }/toVersionView?appId=${appInfo.id}">新增版本</a></li>
-					    <li><a href="#">修改版本</a></li>
+					    <li><a onclick="updateVersion(${appInfo.status },'${status[varstu.index]}','${appVersions[varstu.index].versionno }',${appInfo.id })">修改版本</a></li>
 					    <!--${pageContext.request.contextPath }/toUpdateApp?appId=${appInfo.id }  -->
 					      <li><a  onclick="editApp(${appInfo.id },${appInfo.status },'${status[varstu.index]}')">修改</a></li>
 					     <li><a href="${pageContext.request.contextPath }/showAppInfo?appId=${appInfo.id}">查看</a></li>

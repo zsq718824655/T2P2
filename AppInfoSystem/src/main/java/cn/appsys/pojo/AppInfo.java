@@ -1,7 +1,12 @@
 package cn.appsys.pojo;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.alibaba.fastjson.annotation.JSONField;
 
 public class AppInfo {
     private Long id;
@@ -40,6 +45,7 @@ public class AppInfo {
 
     private Long modifyby;
 
+    
     private Date modifydate;
 
     private Long categorylevel1;
@@ -52,7 +58,26 @@ public class AppInfo {
 
     private Long versionid;
 
-    public Long getId() {
+   /* private String modifydate_s;
+    
+    public String getModifydate_s() {
+    	SimpleDateFormat df=new SimpleDateFormat("yyyy-mm-dd");
+    	String modifydate_s="";
+    	if(modifydate!=null) {
+    		modifydate_s=	df.format(modifydate);
+    	}
+    	return modifydate_s;
+    }
+    
+    
+    
+    public void setModifydate_s(String modifydate_s) {
+		this.modifydate_s = modifydate_s;
+	}*/
+
+
+
+	public Long getId() {
         return id;
     }
 

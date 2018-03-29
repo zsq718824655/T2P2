@@ -1,5 +1,7 @@
 package cn.appsys.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -20,6 +22,27 @@ public class AppVersionServiceImpl implements AppVersionService{
 		AppVersion appVersion=null;
 		appVersion=appVersionMapper.getNewVersion(id);
 		return appVersion;
+	}
+	@Override
+	public List<AppVersion> getAllVersionByappId(Long appId) {
+		List<AppVersion> list=null;
+		list=appVersionMapper.getAllVersionByappId(appId);
+		return list;
+	}
+	/*@Override
+	public boolean saveAppVersion(AppVersionService appVersion) {
+	int i=	appVersionMapper.saveAppVersion(appVersion);
+	if(i>0) {
+		return true;
+	}else {
+		return false;
+	}
+		
+	}*/
+	@Override
+	public void saveAppVersion(AppVersion appVersiona) {
+		// TODO Auto-generated method stub
+		appVersionMapper.saveAppVersion(appVersiona);
 	}
 
 }

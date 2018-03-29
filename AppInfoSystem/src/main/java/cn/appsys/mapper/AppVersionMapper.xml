@@ -191,7 +191,25 @@
    SELECT * FROM app_version WHERE appId=#{appid} ORDER BY id DESC LIMIT 1;
   </select>
   
+  <select id="getAllVersionByappId" parameterType="Long" resultMap="BaseResultMap">
+  SELECT * FROM app_version WHERE appId=#{appids} ORDER BY id desc
+  </select>
   
   
+  <insert id="saveAppVersion" parameterType="AppVersion">
+  
+  insert into app_version (appId, versionNo, 
+      versionInfo, publishStatus, downloadLink, 
+      versionSize, createdBy, creationDate, 
+      modifyBy, modifyDate, apkLocPath, 
+      apkFileName)
+    values ( #{appid,jdbcType=BIGINT}, #{versionno,jdbcType=VARCHAR}, 
+      #{versioninfo,jdbcType=VARCHAR}, #{publishstatus,jdbcType=BIGINT}, #{downloadlink,jdbcType=VARCHAR}, 
+      #{versionsize,jdbcType=DECIMAL}, #{createdby,jdbcType=BIGINT}, #{creationdate,jdbcType=TIMESTAMP}, 
+      #{modifyby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}, #{apklocpath,jdbcType=VARCHAR}, 
+      #{apkfilename,jdbcType=VARCHAR})
+   
+  
+  </insert>
   
 </mapper>
