@@ -281,6 +281,14 @@
  				 
 			</table>
                     </form>
+		                 
+		                     <div class="form-group">
+		    <div class="text-center">
+		  
+		      
+		      <a href="javascript:history.back(-1)" class="btn btn-primary ">返回</a>
+		    </div>
+		  </div>
                   </div>
                 </div>
               </div>
