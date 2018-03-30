@@ -263,9 +263,9 @@
  				</tr>
  		<c:forEach items="${appVersions}" varStatus="varstu" var="appVersion"> 
  				<tr class="row">
- 				<td class="col-md-2">${appInfo.softwarename }</td>
- 				<td class="col-md-2">${appVersion.versionno }</td>
- 				<td class="col-md-2">${appInfo.softwaresize }</td>
+ 				<td class="col-md-2">${showAppInfo.softwarename }</td>
+ 				<td class="col-md-2">${appVersion.versionno }</td><%-- ${appVersion.versionno } --%>
+ 				<td class="col-md-2">${showAppInfo.softwaresize }</td>
  				<td class="col-md-2">${publishNames[varstu.index] }</td>
  				<td class="col-md-2">${appVersion.apkfilename }</td>
  				<td class="col-md-2">

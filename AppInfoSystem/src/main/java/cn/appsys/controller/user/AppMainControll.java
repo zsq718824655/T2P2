@@ -43,7 +43,8 @@ import cn.appsys.utils.PageSupport;
  */
 @Controller
 public class AppMainControll {
-
+	@Autowired
+	private AppVersionService appVersion;
 	@Autowired
 	private AppInfoService appInfoService;
 	@Autowired
@@ -377,8 +378,19 @@ public class AppMainControll {
 			String level1=appInfoService.getCatagoryLevel(showAppInfo.getCategorylevel1());
 			String level2=appInfoService.getCatagoryLevel(showAppInfo.getCategorylevel2());
 			String level3=appInfoService.getCatagoryLevel(showAppInfo.getCategorylevel3());
-					
-					
+			//查看该软件所有的版本
+			List<AppVersion> appVersions=appVersion.getAllVersionByappId(appId);	
+	
+			//发布状态名字
+			List<String> publishNames=new ArrayList<String>();
+			for(AppVersion appversion:appVersions) {
+			String name=	dataDictionaryService.getpublishStatu(appversion.getPublishstatus());
+			publishNames.add(name);
+			}
+			
+			model.addAttribute("appVersions", appVersions);
+			model.addAttribute("showAppInfo", showAppInfo);
+			model.addAttribute("publishNames", publishNames);
 			model.addAttribute("AllPlat", allPlat);
 			model.addAttribute("Level1", level1);
 			model.addAttribute("Level2", level2);
