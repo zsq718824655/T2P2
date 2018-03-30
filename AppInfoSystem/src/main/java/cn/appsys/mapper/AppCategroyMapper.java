@@ -22,4 +22,6 @@ public interface AppCategroyMapper {
 	List<AppCategroy> getAllCatagroy(Integer parentId);
 
 	List<AppCategroy> getTwoCatagroy(Integer parentId);
+	
+	
 }

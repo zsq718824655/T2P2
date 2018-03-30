@@ -167,4 +167,11 @@
    <select id="getpublishStatu" parameterType="Long" resultType="String">
  	SELECT valueName FROM data_dictionary WHERE valueId =#{PPID} AND typeCode="PUBLISH_STATUS"
  	 </select>
+ 	 
+ 	 <select id="getpublishStatus" parameterType="Long" resultType="String">
+ 	 	select *from data_dictionary limit 5,5
+ 	 </select>
+ 	 
+ 	
+ 	 
 </mapper>

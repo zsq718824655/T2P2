@@ -439,6 +439,11 @@
   select count(*) from app_info where APKName=#{apkName}
   </select>
   
+<<<<<<< HEAD
+  <select id="getCatagoryLevel" parameterType="Long" resultType="String" >
+ 	 	SELECT categoryName FROM app_category WHERE id=#{id}
+  </select>
+=======
   <update id="updateStatu">
   UPDATE app_info SET STATUS=#{statu} WHERE id=#{appid}
   </update>
@@ -455,4 +460,5 @@
   
   
   
+>>>>>>> branch 'master' of git@github.com:zsq718824655/T2P2.git
 </mapper>

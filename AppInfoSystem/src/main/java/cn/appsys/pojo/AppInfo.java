@@ -57,6 +57,11 @@ public class AppInfo {
     private String logolocpath;
 
     private Long versionid;
+    
+    //后台验证
+    
+   private AppVersion appVersion;
+   
 
    /* private String modifydate_s;
     
@@ -268,4 +273,13 @@ public class AppInfo {
     public void setVersionid(Long versionid) {
         this.versionid = versionid;
     }
+
+	public AppVersion getAppVersion() {
+		return appVersion;
+	}
+
+	public void setAppVersion(AppVersion appVersion) {
+		this.appVersion = appVersion;
+	}
+    
 }

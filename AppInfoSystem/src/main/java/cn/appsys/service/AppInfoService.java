@@ -27,4 +27,6 @@ public interface AppInfoService {
 
 	boolean updateStatu(Long statu,Long appid);
 
+	String getCatagoryLevel(long id);
+ 
 }

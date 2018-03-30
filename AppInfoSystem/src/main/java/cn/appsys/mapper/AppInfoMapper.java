@@ -41,6 +41,5 @@ public interface AppInfoMapper {
 	//¸ù¾ÝId É¾³ýAPP
 	int deleteAppInfor(int id );
 	
-	
-	
+	String getCatagoryLevel(long id);
 }

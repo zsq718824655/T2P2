@@ -363,10 +363,29 @@ public class AppMainControll {
 	
 	//查看
 		@RequestMapping("/showAppInfo")
-		public  String getByIdAPP(Long appId,Model model){
+		public  String getByIdAPP(Model model,Long appId){
+		
 			AppInfo showAppInfo=appInfoService.getByIdAPP(appId);
-			System.out.println("appId======"+appId);
+			//System.out.println("appId======"+appId);
+			//获取所属平台
+			//List<DataDictionary> allplat=	dataDictionaryService.getAllplatNames(showAppInfo.getStatus());
+			String allPlat=dataDictionaryService.getByDataId(showAppInfo.getFlatformid());
+			//获取APP状态
+		//	String appStatus =	dataDictionaryService.getpublishStatus(showAppInfo.getStatus());
+			String appStatus=	dataDictionaryService.getByStatusId(showAppInfo.getStatus());
+			//获取全部分类级别
+			String level1=appInfoService.getCatagoryLevel(showAppInfo.getCategorylevel1());
+			String level2=appInfoService.getCatagoryLevel(showAppInfo.getCategorylevel2());
+			String level3=appInfoService.getCatagoryLevel(showAppInfo.getCategorylevel3());
+					
+					
+			model.addAttribute("AllPlat", allPlat);
+			model.addAttribute("Level1", level1);
+			model.addAttribute("Level2", level2);
+			model.addAttribute("Level3", level3);
+			model.addAttribute("AppStatus", appStatus);
 			model.addAttribute("showAppInfo", showAppInfo);
+			
 			return"showAppInfo";
 		}
 		
