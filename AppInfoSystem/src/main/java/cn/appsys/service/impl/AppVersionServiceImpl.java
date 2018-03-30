@@ -51,5 +51,12 @@ public class AppVersionServiceImpl implements AppVersionService{
 		appVersionMapper.editsaveAppVersion(appVersiona);
 		
 	}
+	@Override
+	
+	//idÉ¾³ý  °æ±¾ºÅ
+	public void deleteAppVersionId(int appId) {
+		appVersionMapper.deleteAppVersionId(appId);
+		
+	}
 
 }

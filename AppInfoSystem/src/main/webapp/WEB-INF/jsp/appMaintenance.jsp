@@ -179,7 +179,7 @@
 					  
 					  <li><a onclick="upLine('${status[varstu.index]}',${appInfo.id },${varstu.index })">上架</a></li>
 					  <li><a onclick="downLine('${status[varstu.index]}',${appInfo.id },${varstu.index })">下架</a></li>
-					  <li><a href="#">删除</a></li>
+					  <li><a href="${pageContext.request.contextPath }/delUser?id=${appInfo.id}" onclick="return confirmd()" >删除</a></li>
 					  </ul>
 				</div>
  				
@@ -227,6 +227,27 @@
       </div>
     </div>
  </div>
+ 
+ 
+ 
+ <script type="text/javascript">
+	
+ 
+ function confirmd() {  
+             var msg = "您真的确定要删除吗？愣头青 请确认！";  
+             if (confirm(msg)==true){  
+                 return true;  
+             }else{  
+                 return false;  
+             }  
+         }  
+
+ 
+ 
+</script>
+ 
+ 
+ 
 
 
 <script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/appMaintenance.js"></script>

@@ -385,4 +385,26 @@ public class AppMainControll {
 		
 		
 	
+
+	// ²é¿´
+	@RequestMapping("/showAppInfo")
+	public String getByIdAPP(Long appId, Model model) {
+		AppInfo showAppInfo = appInfoService.getByIdAPP(appId);
+		System.out.println("appId======" + appId);
+		model.addAttribute("showAppInfo", showAppInfo);
+		return "showAppInfo";
+	}
+
+	// É¾³ýApp
+	@RequestMapping("/delUser")
+	public String delUser(int id) {
+		
+		 appVersionService.deleteAppVersionId(id);
+			
+		   boolean s = appInfoService.deleteAppInfor(id);
+		   
+		   return "forward:/appMaintenanceView";
+		  
+	}
+
 }

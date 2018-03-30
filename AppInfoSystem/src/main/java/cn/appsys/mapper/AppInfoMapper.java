@@ -37,6 +37,9 @@ public interface AppInfoMapper {
 
 
 	int updateStatu(@Param("statu")Long statu, @Param("appid")Long appid);
+
+	//¸ù¾ÝId É¾³ýAPP
+	int deleteAppInfor(int id );
 	
 	
 	

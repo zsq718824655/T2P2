@@ -13,5 +13,9 @@ public interface AppVersionService {
 	boolean updateApkFileName(Long versionId);
 	void editsaveAppVersion(AppVersion appVersiona);
 	
+	
+	//¸ù¾ÝappIdÉ¾³ý°æ±¾ºÅ
+	void deleteAppVersionId(int appId);
+	
 
 }
