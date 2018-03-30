@@ -22,7 +22,8 @@ import cn.appsys.utils.DevQueryBean;
 import cn.appsys.utils.PageSupport;
 @Controller
 public class backMainControl {
-
+	@Autowired
+	private AppVersionService appVersion;
 	@Autowired
 	private AppInfoService appInfoService;
 	@Autowired
@@ -149,5 +150,49 @@ public class backMainControl {
 	    	model.addAttribute("appVersions",appVersions);
 			return "back/backappMananger";
 		}
-	
+		//审核页面
+				@RequestMapping("/toCheck")
+				public  String getByIdAPP(Model model,Long appId){
+				
+					AppInfo showAppInfo=appInfoService.getByIdAPP(appId);
+					//System.out.println("appId======"+appId);
+					//获取所属平台
+					//List<DataDictionary> allplat=	dataDictionaryService.getAllplatNames(showAppInfo.getStatus());
+					String allPlat=dataDictionaryService.getByDataId(showAppInfo.getFlatformid());
+					//获取APP状态
+				//	String appStatus =	dataDictionaryService.getpublishStatus(showAppInfo.getStatus());
+					String appStatus=	dataDictionaryService.getByStatusId(showAppInfo.getStatus());
+					//获取全部分类级别
+					String level1=appInfoService.getCatagoryLevel(showAppInfo.getCategorylevel1());
+					String level2=appInfoService.getCatagoryLevel(showAppInfo.getCategorylevel2());
+					String level3=appInfoService.getCatagoryLevel(showAppInfo.getCategorylevel3());
+					//查看该软件所有的版本
+					List<AppVersion> appVersions=appVersion.getAllVersionByappId(appId);	
+			
+					//发布状态名字
+					List<String> publishNames=new ArrayList<String>();
+					for(AppVersion appversion:appVersions) {
+					String name=	dataDictionaryService.getpublishStatu(appversion.getPublishstatus());
+					publishNames.add(name);
+					}
+					
+					model.addAttribute("appVersions", appVersions);
+					
+					model.addAttribute("publishNames", publishNames);
+					model.addAttribute("AllPlat", allPlat);
+					model.addAttribute("Level1", level1);
+					model.addAttribute("Level2", level2);
+					model.addAttribute("Level3", level3);
+					model.addAttribute("AppStatus", appStatus);
+					model.addAttribute("showAppInfo", showAppInfo);
+					
+					return"back/check";
+				}
+	   
+			@RequestMapping("/pass")	
+			public String pass(long appid) {
+				
+				appInfoService.modifyStatus(appid);
+		return "forward:/backappMaintenanceView?appStatus=1";
+	}
 }

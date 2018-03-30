@@ -246,9 +246,22 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo">Logo图片<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="file" id="logo" name="logo" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                          <input type="file" id="logo" name="logo" data-validate-length-range="8,20" class="col-md-7 col-xs-12">
                         </div>
                       </div>
+                      
+                       
+                  
+                      <div class="item form-group">
+                        
+                        <div class="text-center col-md-6 col-sm-6 col-xs-12">
+                          <a href="${pageContext.request.contextPath }/pass?appid=${showAppInfo.id}" class="btn btn-primary ">审核通过</a>
+		      	 		<a href="javascript:history.back(-1)" class="btn btn-primary ">审核不通过</a>
+		          		<a href="javascript:history.back(-1)" class="btn btn-primary ">返回</a>
+                        </div>
+                      </div>
+                      
+                 </form>     
                       <label class="control-label apkNameLable">历史版本列表</label>
         	<table class="table table-bordered">
  				
@@ -279,14 +292,14 @@
  				
  				
  				 
-			</table>+
-                    </form>
+			</table>
+                    
 		                 
 		                     <div class="form-group">
 		    <div class="text-center">
 		  
 		      
-		      <a href="javascript:history.back(-1)" class="btn btn-primary ">返回</a>
+	
 		    </div>
 		  </div>
                   </div>

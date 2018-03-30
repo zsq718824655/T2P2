@@ -455,7 +455,10 @@
     	where id = #{id}
  	</delete>
   
+  <update id="modifyStatus" parameterType="long">
+   UPDATE app_info SET STATUS=2 WHERE id=#{appid}
   
+  </update>
   
   
   

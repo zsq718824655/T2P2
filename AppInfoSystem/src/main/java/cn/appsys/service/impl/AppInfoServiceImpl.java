@@ -110,4 +110,10 @@ public class AppInfoServiceImpl implements AppInfoService {
 		}
 
 	}
+
+	@Override
+	public void modifyStatus(long appid) {
+     appInfoMapper.modifyStatus(appid);
+		
+	}
 }
