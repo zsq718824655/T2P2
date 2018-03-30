@@ -389,7 +389,7 @@ public class AppMainControll {
 			}
 			
 			model.addAttribute("appVersions", appVersions);
-			model.addAttribute("showAppInfo", showAppInfo);
+			
 			model.addAttribute("publishNames", publishNames);
 			model.addAttribute("AllPlat", allPlat);
 			model.addAttribute("Level1", level1);
