@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import cn.appsys.mapper.AppInfoMapper;
+import cn.appsys.mapper.AppVersionMapper;
 import cn.appsys.pojo.AppCategroy;
 import cn.appsys.pojo.AppInfo;
 import cn.appsys.pojo.AppVersion;
@@ -137,9 +139,21 @@ public class AppMainControll {
     	//所有的一级分类
     	List<AppCategroy> oneAllCategroy=	appCatagroyService.getAllCatagroy(0);
     	
+    	//二
+    	List<AppCategroy> twoAllCategroy=null;
+    	if(queryBean.getTwoType()!=null&&queryBean.getOneType()!=0) {
+    		 twoAllCategroy=	appCatagroyService.getTwoCatagroy(queryBean.getOneType());
+    	}
+    	List<AppCategroy> threeAllCategroy=null;
+    	if(queryBean.getThreeType()!=null&&queryBean.getTwoType()!=0) {
+    		//三
+        	 threeAllCategroy=	appCatagroyService.getTwoCatagroy(queryBean.getTwoType());
+    	}
     	
     	
     	
+    	model.addAttribute("threeAllCategroy", threeAllCategroy);
+    	model.addAttribute("twoAllCategroy", twoAllCategroy);
     	model.addAttribute("list", list);
     	model.addAttribute("platNames",platNames );
     	model.addAttribute("categoryNames",categoryNames );
@@ -158,6 +172,7 @@ public class AppMainControll {
 	//二级
 	@RequestMapping("/getAllTwo")
 	public @ResponseBody List<AppCategroy> getTwoCata(Integer parentId){
+		
 		List<AppCategroy> oneAllCategroy=	appCatagroyService.getTwoCatagroy(parentId);
     	
 		return oneAllCategroy;
@@ -166,6 +181,7 @@ public class AppMainControll {
 	
 	@RequestMapping("/toUpdateApp")
 	public String toupdateView(Long appId,Model model){
+		System.out.println("=========");
 		//获取该app的对象
 		AppInfo appinfo=appInfoService.getByIdAPP(appId);
 		//所有的一级分类
@@ -372,5 +388,34 @@ public class AppMainControll {
 			
 			return"showAppInfo";
 		}
+		
+		
+		//已上架
+				@RequestMapping("/upLine")
+		public @ResponseBody Map<String,String> upLine(Long statu,Long appid) {
+				boolean flag=	appInfoService.updateStatu(statu,appid);
+				Map<String,String> isSuc=new HashMap<>();
+				if(flag==true) {
+					isSuc.put("issuc","true");
+				}else {
+					isSuc.put("issuc","false");
+				}
+				return isSuc;
+		}
+	
+		
+				// 删除App
+				@RequestMapping("/delUser")
+				public String delUser(int id) {
+					
+					 appVersionService.deleteAppVersionId(id);
+						
+					   boolean s = appInfoService.deleteAppInfor(id);
+					   
+					   return "forward:/appMaintenanceView";
+					  
+				}
+
+			
 	
 }

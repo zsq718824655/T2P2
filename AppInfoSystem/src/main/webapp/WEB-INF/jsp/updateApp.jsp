@@ -20,7 +20,7 @@
     <div class="col-sm-4 col-md-4" >
       <input type="text" name="apkname" value="${appinfo.apkname }" class="form-control" readonly="readonly">
     </div>
-    <label class="control-label">提示信息</label>
+    <label class="control-label"></label>
   </div>
   <div class="form-group">
     <label for="romlab" class="col-sm-2 control-label">支持ROM</label>
@@ -114,12 +114,10 @@
       
        <c:choose>
     <c:when test="${appinfo.logolocpath!=null and appinfo.logolocpath!='' }">
- <!-- <input name="logolocpathPic" type="file" /> -->
    <img height="80px" width="80px" style="vertical-align: middle;" class="control-label" alt="login的图片" src="/mypic/${appinfo.logolocpath}"/>&nbsp;&nbsp;&nbsp;<a style="cursor:pointer" style="vertical-align: middle;"  onclick="dletPic(${appinfo.id})">删除</a>
     </c:when>
     <c:otherwise>
-    <!--  <label class="col-sm-2 control-label"> 你还没有logo,请选择</label> -->
-  <input type="file"  name="logolocpathPic" class="form-control"  required="required">
+  <input type="file"  name="logolocpathPic"   required="required">
     </c:otherwise>
     </c:choose>
     </div>

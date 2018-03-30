@@ -212,4 +212,67 @@
   
   </insert>
   
+  
+  <update id="updateApkFileName" parameterType="Long">
+  UPDATE app_version SET apkFileName=NULL WHERE id=#{vid};
+  </update>
+  
+  <update id="editsaveAppVersion" parameterType="AppVersion">
+  
+ 	 update app_version
+    <set>
+      <if test="appid != null">
+        appId = #{appid,jdbcType=BIGINT},
+      </if>
+      <if test="versionno != null">
+        versionNo = #{versionno,jdbcType=VARCHAR},
+      </if>
+      <if test="versioninfo != null">
+        versionInfo = #{versioninfo,jdbcType=VARCHAR},
+      </if>
+      <if test="publishstatus != null">
+        publishStatus = #{publishstatus,jdbcType=BIGINT},
+      </if>
+      <if test="downloadlink != null">
+        downloadLink = #{downloadlink,jdbcType=VARCHAR},
+      </if>
+      <if test="versionsize != null">
+        versionSize = #{versionsize,jdbcType=DECIMAL},
+      </if>
+      <if test="createdby != null">
+        createdBy = #{createdby,jdbcType=BIGINT},
+      </if>
+      <if test="creationdate != null">
+        creationDate = #{creationdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyby != null">
+        modifyBy = #{modifyby,jdbcType=BIGINT},
+      </if>
+      <if test="modifydate != null">
+        modifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="apklocpath != null">
+        apkLocPath = #{apklocpath,jdbcType=VARCHAR},
+      </if>
+      <if test="apkfilename != null">
+        apkFileName = #{apkfilename,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  
+  </update>
+  
+  <!--++++++++++++ 根据版本号删除Id +++++++++++++++++  -->
+  <delete id="deleteAppVersionId" parameterType="int">
+    DELETE FROM app_version WHERE appId=#{appid}
+  
+  </delete>
+  
+  
+  
+  
+  
+  
+  
+  
 </mapper>

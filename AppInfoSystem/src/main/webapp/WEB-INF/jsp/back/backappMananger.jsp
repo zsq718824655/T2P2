@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!--app维护主页面  -->
-<%@include file="/WEB-INF/jsp/common/left.jsp"%>
+<%@include file="/WEB-INF/jsp/backcommon/right.jsp"%>
 
 
 
@@ -14,42 +14,27 @@
           <!-- top tiles -->
           <div class="row tile_count" style="margin-left: 15px">
             <div class="row">
-            <font SIZE="5PX">APP管理维护：</font>${userSession.devname }
+            <font SIZE="5PX">APP审核列表</font>${userSession.username }
             <hr/>
             </div>
             
-            <form action="${pageContext.request.contextPath }/appMaintenanceView" method="post">
+            <form action="${pageContext.request.contextPath }/backappMaintenanceView" method="post">
+         <!-- 状态-->
+          <input type="hidden" name="appStatus" value="1"/>
             <div class="row">
        `    <div class="col-md-3 form-group">
-       			 <span class="col-md-4 text-center col-sm-4" style="line-height: 34px">软件名称：</span>
-       			<div class="col-md-8 col-sm-8">
+       			 <span class="col-md-3 text-center" style="line-height: 34px">软件名称：</span>
+       			<div class="col-md-9">
        			
        			 <input name="softwareName" class="form-control" type="text" value="${queryBean.softwareName }"/>
        			 </div>
        		</div>
        		
-       		<div class="col-md-3 form-group">
-  			        <span class="col-md-4 text-center" style="line-height: 34px">app状态：</span>
-       			<div class="col-md-8">
-       			
-       			 <select name="appStatus" class="form-control">
-       			<c:if test="${allStatus != null }">
-						   <option value="0">--请选择--</option>
-						   <c:forEach var="allst" items="${allStatus}">
-						   		<option <c:if test="${allst.valueid == queryBean.appStatus }">selected="selected"</c:if>
-						   		value="${allst.valueid}">${allst.valuename}</option>
-						   </c:forEach>
-				</c:if>
-       			</select>
-       			
-       			
-       			
-       			 </div>
-       		</div>
+       		
        		
        		<div class="col-md-3 form-group">
-        	     <span class="col-md-4 text-center" style="line-height: 34px">所属平台：</span>
-       			<div class="col-md-8">
+        	     <span class="col-md-3 text-center" style="line-height: 34px">所属平台：</span>
+       			<div class="col-md-9">
        			
        			 <select name="appFlatform" class="form-control">
        			<c:if test="${allplat != null }">
@@ -62,12 +47,10 @@
        			</select>
        			 </div>
        		</div>
-            </div>
-            
-            <div class="row">
-                 <div class="col-md-3 form-group">
-       			 <span class="col-md-4 text-center" style="line-height: 34px">一级分类：</span>
-       			<div class="col-md-8">
+       		
+       		 <div class="col-md-3 form-group">
+       			 <span class="col-md-3 text-center" style="line-height: 34px">一级分类：</span>
+       			<div class="col-md-9">
        			
        			 <select  name="oneType" class="form-control oneType">
        			<c:if test="${oneAllCategroy != null }">
@@ -81,9 +64,14 @@
        			 </div>
        		</div>
        		
+            </div>
+            
+            <div class="row">
+                
+       		
        		<div class="col-md-3 form-group">
-  			        <span class="col-md-4 text-center" style="line-height: 34px">二级分类：</span>
-       			<div class="col-md-8">
+  			        <span class="col-md-3 text-center" style="line-height: 34px">二级分类：</span>
+       			<div class="col-md-9">
        			
        			<select name="twoType" class="form-control twoType">
        			<c:if test="${twoAllCategroy != null }">
@@ -93,14 +81,13 @@
 						   		value="${twoAlls.id}">${twoAlls.categoryname}</option>
 						   </c:forEach>
 				</c:if>
-       			
        			</select>
        			 </div>
        		</div>
        		
        		<div class="col-md-3 form-group">
-        	     <span class="col-md-4 text-center" style="line-height: 34px">三级分类：</span>
-       			<div class="col-md-8">
+        	     <span class="col-md-3 text-center" style="line-height: 34px">三级分类：</span>
+       			<div class="col-md-9">
        			
        			 <select name="threeType" class="form-control threeType">
        			<c:if test="${threeAllCategroy != null }">
@@ -113,14 +100,20 @@
        			</select>
        			 </div>
        		</div>
+       		
+       		
+       		<div class="col-md-3 form-group">
+       		<input type="submit" class="btn btn-primary" value="查询"/>
+       		</div>
+       		
             </div>
             
-              <div class="row">
+              <!-- <div class="row">
               <div class="col-md-offset-4">
               <input type="submit" class="btn btn-primary" value="查询"/>
               </div>
               
-           	 </div>
+           	 </div> -->
            	 
            	 <!-- 当前的页数 -->
            	 <input type="hidden" name="pageIndex" value="1"/>
@@ -135,9 +128,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="dashboard_graph">
 			
-			<div class="row"> 
-              <input type="button" class="btn btn-success btn-sm addAPPView"  value="新增app基础信息"/>
-            </div>
+		
 			
 			<table class="table table-bordered">
  				
@@ -160,28 +151,21 @@
  				<td class="col-md-1">${appInfo.softwaresize }</td>
  				<td class="col-md-1">${platNames[varstu.index] } </td>
  				<td class="col-md-2">${categoryNames[varstu.index]}</td>
- 				<td class="col-md-1 statu_${varstu.index }">${status[varstu.index]}</td>
+ 				<td class="col-md-1 statu_${varstu.index }">待审核</td>
  				<td class="col-md-1">${appInfo.downloads }</td>
  				<td class="col-md-1">${appVersions[varstu.index].versionno } </td>
  					<td class="col-md-2 text-center">
- 				
- 				<div class="btn-group">
+ 				<a href="#" class="btn  btn-default">审核</a>
+ 				<!-- <div class="btn-group">
 					  <button type="button" class="btn  btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    点击操作 <span class="caret"></span>
 					  </button>
 					  <ul class="dropdown-menu">
 					  
-					    <li><a href="${pageContext.request.contextPath }/toVersionView?appId=${appInfo.id}">新增版本</a></li>
-					    <li><a onclick="updateVersion(${appInfo.status },'${status[varstu.index]}','${appVersions[varstu.index].versionno }',${appInfo.id })">修改版本</a></li>
-					    <!--${pageContext.request.contextPath }/toUpdateApp?appId=${appInfo.id }  -->
-					      <li><a  onclick="editApp(${appInfo.id },${appInfo.status },'${status[varstu.index]}')">修改</a></li>
-					     <li><a href="${pageContext.request.contextPath }/showAppInfo?appId=${appInfo.id}">查看</a></li>
-					  
-					  <li><a onclick="upLine('${status[varstu.index]}',${appInfo.id },${varstu.index })">上架</a></li>
-					  <li><a onclick="downLine('${status[varstu.index]}',${appInfo.id },${varstu.index })">下架</a></li>
-					  <li><a href="${pageContext.request.contextPath }/delUser?id=${appInfo.id}" onclick="return confirmd()" >删除</a></li>
+					    <li></li>
+					    
 					  </ul>
-				</div>
+				</div> -->
  				
  				</td>
  				<tr/>
@@ -227,27 +211,6 @@
       </div>
     </div>
  </div>
- 
- 
- 
- <script type="text/javascript">
-	
- 
- function confirmd() {  
-             var msg = "您真的确定要删除吗？愣头青 请确认！";  
-             if (confirm(msg)==true){  
-                 return true;  
-             }else{  
-                 return false;  
-             }  
-         }  
-
- 
- 
-</script>
- 
- 
- 
 
 
 <script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/appMaintenance.js"></script>

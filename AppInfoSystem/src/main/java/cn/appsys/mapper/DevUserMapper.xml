@@ -23,12 +23,12 @@
     from dev_user
     where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+ <!--  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from dev_user
     where id = #{id,jdbcType=BIGINT}
-  </delete>
+  </delete> -->
   <insert id="insert" parameterType="cn.appsys.pojo.DevUser">
-    insert into dev_user (id, devCode, devName, 
+    insert into dev_user (id,devCode, devName, 
       devPassword, devEmail, devInfo, 
       createdBy, creationDate, modifyBy, 
       modifyDate)
@@ -156,18 +156,28 @@
   
   <!--++++++++++++++++++++++++++++++++++++++++++  -->
   
-  <select id="getDevUserByUserCode"  parameterType="String" resultMap="BaseResultMap">
-  SELECT * FROM dev_user WHERE devCode=#{did}
+  <select id="getDevUserByUserCode" parameterType="String"
+	resultMap="BaseResultMap">
+	SELECT * FROM dev_user WHERE devCode=#{did}
   
   </select>
   
   
+  <!--/////////////    注册    添加用户   ///////////////////////-->
   
   
+   <insert id="addUser" parameterType="DevUser">  
+        insert into dev_user(devCode,devName,devPassword,deveMail,devInfo) values
+        (#{devcode},#{devname},#{devpassword},#{devemail},#{devinfo})  
+    </insert>
   
-  
-  
-  
+    <!-- 根据用户名查询 -->
+    <select id="findByUserName" resultType="DevUser" parameterType="string">
+        select * from dev_user where devCode=#{devCode}
+    </select>
+    
+    
+    
   
   
   

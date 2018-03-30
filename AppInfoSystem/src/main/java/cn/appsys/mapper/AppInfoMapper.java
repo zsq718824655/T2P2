@@ -34,6 +34,12 @@ public interface AppInfoMapper {
 
 
 	int findapkName(String apkName);
+
+
+	int updateStatu(@Param("statu")Long statu, @Param("appid")Long appid);
+
+	//¸ù¾ÝId É¾³ýAPP
+	int deleteAppInfor(int id );
 	
 	String getCatagoryLevel(long id);
 }

@@ -10,6 +10,12 @@ public interface AppVersionService {
 	//获得该app的所有版本
 	List<AppVersion> getAllVersionByappId(Long appId);
 	void saveAppVersion(AppVersion appVersiona);
+	boolean updateApkFileName(Long versionId);
+	void editsaveAppVersion(AppVersion appVersiona);
+	
+	
+	//根据appId删除版本号
+	void deleteAppVersionId(int appId);
 	
 
 }

@@ -24,5 +24,11 @@ public interface AppVersionMapper {
 
 	void saveAppVersion(AppVersion appVersiona);
 
+	int updateApkFileName(Long versionId);
+
+	void editsaveAppVersion(AppVersion appVersiona);
+
+	void deleteAppVersionId(int appId);
+
 
 }

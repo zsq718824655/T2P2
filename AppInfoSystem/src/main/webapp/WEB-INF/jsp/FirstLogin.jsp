@@ -66,7 +66,7 @@
 
               <div class="separator">
                 <p class="change_link">新网站?
-                  <a href="#signup" class="to_register"> 创建新账户</a>
+                  <a href="${pageContext.request.contextPath }/user/register" class="to_register"> 创建新账户</a>
                 </p>
 
                 <div class="clearfix"></div>
@@ -132,7 +132,7 @@
 
               <div class="separator">
                 <p class="change_link">已注册 ?
-                  <a href="#signin" class="to_register"> 注册</a>
+                  <a href="#signup" class="to_register"> 注册</a>
                 </p>
 
                 <div class="clearfix"></div>

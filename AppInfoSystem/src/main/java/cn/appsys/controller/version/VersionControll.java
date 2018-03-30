@@ -103,6 +103,9 @@ public class VersionControll {
 	            	model.addAttribute("uploadFileError", " * 上传app格式不正确");
 	            	return "forward:/picError";
 	            }
+			}else {
+				model.addAttribute("uploadFileError", "没有选择该app文件进行上传");
+				return"forward:/picError";
 			}
 			}
 			
@@ -151,9 +154,69 @@ public class VersionControll {
 		
 		
 		
+		//删除该版本的下载
+		@RequestMapping("/deleteaplFile")
+		public void deleteappFile(Long versionId) {
+			System.out.println("================"+versionId);
+			//修改该版下载路径本为空
+		boolean flag=	appVersion.updateApkFileName(versionId);
 		
+		}
 		
-		
+		//修改版本
+		@RequestMapping("/editVesion")
+		public String editVesion(Model model,HttpSession session, AppVersion appVersiona,@RequestParam(value="apkFileUp",required=false) MultipartFile attach) {
+			
+				AppInfo myapp = appInfoService.getByIdAPP(appVersiona.getAppid());			
+			
+			String idPicPath = null;
+			String path="D:\\appLoad";
+			//判断文件是否为空
+			if(attach!=null) {
+				
+			
+			if(!attach.isEmpty()){
+				 
+				String oldFileName = attach.getOriginalFilename();//原文件名
+				String prefix=FilenameUtils.getExtension(oldFileName);//原文件后缀     
+				int filesize = 500000*1024;
+		        if(attach.getSize() >  filesize){//上传大小不得超过 500k
+		        	model.addAttribute("uploadFileError", " * 上传大小不得超过 500mb");
+		        	return "forward:/picError";
+	            }else if(prefix.equalsIgnoreCase("apk") 
+	            		){//上传图片格式不正确
+	            	String fileName = myapp.getApkname()+"-"+appVersiona.getVersionno()+".apk";
+	                File targetFile = new File(path, fileName);  
+	                if(!targetFile.exists()){  
+	                    targetFile.mkdirs();  
+	                }  
+	                //保存  
+	                try {  
+	                	appVersiona.setApkfilename(fileName);
+	                	
+	                	attach.transferTo(targetFile);  
+	                } catch (Exception e) {  
+	                    e.printStackTrace();  
+	                   model.addAttribute("uploadFileError", " * 上传失败！");
+	                    return "forward:/picError";
+	                }  
+	                idPicPath = path+File.separator+fileName;
+	            }else{
+	            	model.addAttribute("uploadFileError", " * 上传app格式不正确");
+	            	return "forward:/picError";
+	            }
+			}else {
+				model.addAttribute("uploadFileError", "没有选择该app文件进行上传");
+				return"forward:/picError";
+			}
+			}
+			
+			//保存版本
+			
+			appVersion.editsaveAppVersion(appVersiona);
+			System.out.println("============");
+			return "redirect:/appMaintenanceView";	
+		}
 		
 		
 		
