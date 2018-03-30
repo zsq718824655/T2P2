@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import cn.appsys.mapper.AppInfoMapper;
+import cn.appsys.mapper.AppVersionMapper;
 import cn.appsys.pojo.AppCategroy;
 import cn.appsys.pojo.AppInfo;
 import cn.appsys.pojo.AppVersion;
@@ -383,28 +385,18 @@ public class AppMainControll {
 		}
 	
 		
-		
-	
+				// É¾³ýApp
+				@RequestMapping("/delUser")
+				public String delUser(int id) {
+					
+					 appVersionService.deleteAppVersionId(id);
+						
+					   boolean s = appInfoService.deleteAppInfor(id);
+					   
+					   return "forward:/appMaintenanceView";
+					  
+				}
 
-	// ²é¿´
-	@RequestMapping("/showAppInfo")
-	public String getByIdAPP(Long appId, Model model) {
-		AppInfo showAppInfo = appInfoService.getByIdAPP(appId);
-		System.out.println("appId======" + appId);
-		model.addAttribute("showAppInfo", showAppInfo);
-		return "showAppInfo";
-	}
-
-	// É¾³ýApp
-	@RequestMapping("/delUser")
-	public String delUser(int id) {
-		
-		 appVersionService.deleteAppVersionId(id);
 			
-		   boolean s = appInfoService.deleteAppInfor(id);
-		   
-		   return "forward:/appMaintenanceView";
-		  
-	}
-
+	
 }

@@ -271,11 +271,6 @@
   
   
   
-  <!--++++++++++++ 根据版本号删除Id +++++++++++++++++  -->
-  <delete id="deleteAppVersionId" parameterType="int">
-    DELETE FROM app_version WHERE appId=#{appid}
-  
-  </delete>
   
   
   
