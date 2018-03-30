@@ -35,6 +35,5 @@ public interface AppInfoMapper {
 
 	int findapkName(String apkName);
 	
-	
-	
+	String getCatagoryLevel(long id);
 }

@@ -78,26 +78,26 @@
             <!-- /sidebar menu -->
 
             <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
+          <div class="sidebar-footer hidden-small">
               <a data-toggle="tooltip" data-placement="top" title="Settings">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+             <a data-toggle="tooltip" data-placement="top" title="FullScreen">
                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
+              </a> 
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
+            <!--   <a data-toggle="tooltip" data-placement="top" title="Logout">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
+              </a> -->
             </div>
-            <!-- /menu footer buttons -->
+            /menu footer buttons
           </div>
         </div>
 
         <!-- top navigation -->
-       <div class="top_nav">
+      <!--  <div class="top_nav">
           <div class="nav_menu">
             <nav>
               <div class="nav toggle">
@@ -122,21 +122,13 @@
               </ul>
             </nav>
           </div>
-        </div>
+        </div> -->
         <!-- /top navigation -->
 
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3></h3>
-              </div>
-
-              <div class="title_right">
-               
-              </div>
-            </div>
+            
             <div class="clearfix"></div>
 
             <div class="row">
@@ -172,7 +164,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Sname">软件名称<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="Sname" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="Sname" value="${showAppInfo.softwarename} " placeholder="请在这里输入软件名称" required="required" type="text">
+                          <input id="Sname"  readonly="readonly"      class="form-control col-md-7 col-xs-12" data-validate-length-range="6" data-validate-words="2" name="Sname" value="${showAppInfo.softwarename} " placeholder="请在这里输入软件名称" required="required" type="text">
                         </div>
                       </div>
                       
@@ -181,7 +173,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Aname">APK名称 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="Aname" name="Aname"  placeholder="请在这里输入APK名称" value="${showAppInfo.apkname}"  required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="Aname" name="Aname"  readonly="readonly"         placeholder="请在这里输入APK名称" value="${showAppInfo.apkname}"  required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       
@@ -190,89 +182,54 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="rom">支持ROM <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="rom" name="rom" placeholder="请在这里输入软件支持的ROM" value="${showAppInfo.supportrom}" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="rom" name="rom" placeholder="请在这里输入软件支持的ROM" readonly="readonly" value="${showAppInfo.supportrom}" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gui">界面语言 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="gui" name="gui" placeholder="请在这里输入界面所用语言" value="${showAppInfo.interfacelanguage} required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="gui" name="gui" placeholder="请在这里输入界面所用语言"   readonly="readonly"     value="${showAppInfo.interfacelanguage} "required="required" data-validate-minmax="10,100" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="size">软件大小 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="size" name="size" required="required" value="${showAppInfo.softwaresize} placeholder="请在这里输入软件大小" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="size" name="size"  readonly="readonly"        required="required" value="${showAppInfo.softwaresize}" placeholder="请在这里输入软件大小" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="count">下载次数<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="count" type="text" name="count" placeholder="请在这里输入软件已被下载次数" value="${showAppInfo.updatedate}data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12">
+                          <input id="count" type="text" name="count" placeholder="请在这里输入软件已被下载次数"  readonly="readonly"       value="${showAppInfo.updatedate}"data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       
                       <div class="item form-group">
                         <label for="platform" class="control-label col-md-3">所属平台</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        	<select id="platform" name="platform" data-validate-length="6,8" class="form-control col-md-7 col-xs-12">
-                        			<option selected>--请选择--</option>
-                        			<option>手机</option>
-                        			<option>平板</option>
-                        			<option>手表</option>
-                        	</select>
+                                           <input id="count" type="text" name="count"  readonly="readonly"       value="${AllPlat}" data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12">
+                        	
                         </div>
                       </div>
                       
                       
                       <div class="item form-group">
-                        <label for="sort1" class="control-label col-md-3 col-sm-3 col-xs-12">一级分类</label>
+                        <label for="sort1" class="control-label col-md-3 col-sm-3 col-xs-12">所有分类</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                        		<select id="sort1" name="sort1" data-validate-length="6,8" class="form-control col-md-7 col-xs-12">
-                        			<option selected>--请选择--</option>
-                        			<option>手机</option>
-                        			<option>平板</option>
-                        			<option>手表</option> 
-                        	</select>
+                    <input id="count" type="text" name="count"  readonly="readonly"       value="${Level1}-->${Level2}-->${Level3}" data-validate-length-range="5,20" class="optional form-control col-md-7 col-xs-12">
+                        		
                         </div>
                       </div>
                       
-                        <div class="item form-group">
-                        <label for="sort2" class="control-label col-md-3 col-sm-3 col-xs-12">二级分类</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                        		<select id="sort2" name="sort2" data-validate-length="6,8" class="form-control col-md-7 col-xs-12">
-                        			<option selected>--请选择--</option>
-                        			<option>手机</option>
-                        			<option>平板</option>
-                        			<option>手表</option> 
-                        	</select>
-                        </div>
-                      </div>
-                      
-                      
-                       <div class="item form-group">
-                        <label for="sort3" class="control-label col-md-3 col-sm-3 col-xs-12">三级分类</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                        		<select id="sort3" name="sort3" data-validate-length="6,8" class="form-control col-md-7 col-xs-12">
-                        			<option selected>--请选择--</option>
-                        			<option>手机</option>
-                        			<option>平板</option>
-                        			<option>手表</option> 
-                        	</select>
-                        </div>
-                      </div>
-                      
-                      
-                    
                       
                        <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="state">APP状态 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="state" name="state" placeholder="待审核" readonly data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="state" name="state" placeholder="待审核" readonly  value="${AppStatus} "data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       
@@ -280,7 +237,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="desc">应用简介 <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <textarea id="desc" required="required" name="desc" class="form-control col-md-7 col-xs-12"></textarea>
+                          <textarea id="desc" required="required" name="desc" class="form-control col-md-7 col-xs-12">${showAppInfo.appinfo}</textarea>
                         </div>
                       </div>
                       
@@ -291,13 +248,37 @@
                           <input type="file" id="logo" name="logo" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
-                    <!--   <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
-                          <button type="submit" class="btn btn-primary">取消</button>
-                          <button id="send" type="submit" class="btn btn-success">提交</button>
-                        </div>
-                      </div> -->
+                      <label class="control-label apkNameLable">历史版本列表</label>
+        	<table class="table table-bordered">
+ 				
+ 				<tr class="row">
+ 				
+ 				<th class="col-md-2 ">软件名称</th>
+ 				<th class="col-md-2">版本号</th>
+ 				<th class="col-md-2">版本大小(单位M)</th>
+ 				<th class="col-md-2">发布状态</th>
+ 				<th class="col-md-2">apk文件下载</th>
+ 				<th class="col-md-2">更新最新时间 </th>
+ 				<!-- appVersions -->
+ 				</tr>
+ 		<c:forEach items="${appVersions}" varStatus="varstu" var="appVersion"> 
+ 				<tr class="row">
+ 				<td class="col-md-2">${appInfo.softwarename }</td>
+ 				<td class="col-md-2">${appVersion.versionno }</td>
+ 				<td class="col-md-2">${appInfo.softwaresize }</td>
+ 				<td class="col-md-2">${publishNames[varstu.index] }</td>
+ 				<td class="col-md-2">${appVersion.apkfilename }</td>
+ 				<td class="col-md-2">
+ 				<fmt:formatDate value="${appVersion.modifydate }" pattern="yyyy-mm-dd"/>	</td>
+ 			
+ 				
+ 					
+ 				<tr/>
+ 				</c:forEach> 
+ 				
+ 				
+ 				 
+			</table>
                     </form>
                   </div>
                 </div>
@@ -363,6 +344,6 @@
       });
       
     </script>
-    /validator -->
-  </body>
+     /validator
+ -->  </body>
 </html>

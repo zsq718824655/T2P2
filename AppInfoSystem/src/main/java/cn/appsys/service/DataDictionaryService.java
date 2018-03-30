@@ -10,12 +10,14 @@ import cn.appsys.pojo.DataDictionary;
  */
 public interface DataDictionaryService {
 
+
 	String getByDataId(Long flatformid);
 	//״̬
 	String getByStatusId(Long status);
 	List<DataDictionary> getAllStatus();
 	List<DataDictionary> getAllplatNames();
 	String getpublishStatu(Long publishstatus);
+	String getpublishStatus(Long publishstatus);
 
 	
 }

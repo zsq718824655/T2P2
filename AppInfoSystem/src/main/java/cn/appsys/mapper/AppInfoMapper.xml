@@ -439,4 +439,7 @@
   select count(*) from app_info where APKName=#{apkName}
   </select>
   
+  <select id="getCatagoryLevel" parameterType="Long" resultType="String" >
+ 	 	SELECT categoryName FROM app_category WHERE id=#{id}
+  </select>
 </mapper>

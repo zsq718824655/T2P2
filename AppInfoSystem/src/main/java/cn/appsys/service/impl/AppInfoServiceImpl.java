@@ -77,5 +77,10 @@ public class AppInfoServiceImpl implements AppInfoService {
 	}
 		
 	}
+	@Override
+	public String getCatagoryLevel(long id) {
+		String level=appInfoMapper.getCatagoryLevel(id);
+		return level;
+	}
 
 }

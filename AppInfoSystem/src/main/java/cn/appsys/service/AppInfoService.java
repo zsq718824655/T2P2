@@ -21,4 +21,6 @@ public interface AppInfoService {
 
 	boolean findapkName(String apkName);
 
+	String getCatagoryLevel(long id);
+ 
 }
