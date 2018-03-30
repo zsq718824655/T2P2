@@ -20,5 +20,9 @@ public interface AppInfoService {
 	boolean insertAppInfo(AppInfo appinfo);
 
 	boolean findapkName(String apkName);
+	
+	
+	//¸ù¾ÝID É¾³ýAPP
+	boolean deleteAppInfor(int id);
 
 }

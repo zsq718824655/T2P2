@@ -177,12 +177,7 @@
     </select>
     
     
-    <!--+++++++++++   根据id删除app   +++++++++++++++  -->
-  	<delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    	delete from app_info
-    	where id = #{id}
- 	</delete>
-  
+    
   
   
   

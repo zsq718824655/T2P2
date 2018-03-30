@@ -164,7 +164,7 @@
 					     <li><a href="${pageContext.request.contextPath }/showAppInfo?appId=${appInfo.id}">查看</a></li>
 					  
 					  <li><a href="#">上架/下架</a></li>
-					  <li><a href="#">删除</a></li>
+					  <li><a href="${pageContext.request.contextPath }/delUser?id=${appInfo.id}" onclick="return confirmd()" >删除</a></li>
 					  </ul>
 				</div>
  				
@@ -212,7 +212,27 @@
       </div>
     </div>
  </div>
+ 
+ 
+ 
+ <script type="text/javascript">
+	
+ 
+ function confirmd() {  
+             var msg = "您真的确定要删除吗？愣头青 请确认！";  
+             if (confirm(msg)==true){  
+                 return true;  
+             }else{  
+                 return false;  
+             }  
+         }  
 
+ 
+ 
+</script>
+ 
+ 
+ 
 
 <script type="text/javascript" src="${pageContext.request.contextPath }/statics/js/appMaintenance.js"></script>
 </body>

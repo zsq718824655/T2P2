@@ -11,5 +11,9 @@ public interface AppVersionService {
 	List<AppVersion> getAllVersionByappId(Long appId);
 	void saveAppVersion(AppVersion appVersiona);
 	
+	
+	//¸ù¾ÝappIdÉ¾³ý°æ±¾ºÅ
+	void deleteAppVersionId(int appId);
+	
 
 }

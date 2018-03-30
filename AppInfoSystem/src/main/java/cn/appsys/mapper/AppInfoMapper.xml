@@ -439,4 +439,15 @@
   select count(*) from app_info where APKName=#{apkName}
   </select>
   
+  
+  <!--+++++++++++   根据id删除app   +++++++++++++++  -->
+  	<delete id="deleteAppInfor" parameterType="int">
+    	delete from app_info
+    	where id = #{id}
+ 	</delete>
+  
+  
+  
+  
+  
 </mapper>

@@ -44,5 +44,12 @@ public class AppVersionServiceImpl implements AppVersionService{
 		// TODO Auto-generated method stub
 		appVersionMapper.saveAppVersion(appVersiona);
 	}
+	@Override
+	
+	//idÉ¾³ý  °æ±¾ºÅ
+	public void deleteAppVersionId(int appId) {
+		appVersionMapper.deleteAppVersionId(appId);
+		
+	}
 
 }

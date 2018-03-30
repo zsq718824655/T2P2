@@ -24,5 +24,7 @@ public interface AppVersionMapper {
 
 	void saveAppVersion(AppVersion appVersiona);
 
+	void deleteAppVersionId(int appId);
+
 
 }

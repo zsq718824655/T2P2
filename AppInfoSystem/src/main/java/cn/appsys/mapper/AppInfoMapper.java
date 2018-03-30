@@ -34,6 +34,9 @@ public interface AppInfoMapper {
 
 
 	int findapkName(String apkName);
+
+	//¸ù¾ÝId É¾³ýAPP
+	int deleteAppInfor(int id );
 	
 	
 	
