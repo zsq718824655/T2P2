@@ -34,6 +34,9 @@ public interface AppInfoMapper {
 
 
 	int findapkName(String apkName);
+
+
+	int updateStatu(@Param("statu")Long statu, @Param("appid")Long appid);
 	
 	
 	

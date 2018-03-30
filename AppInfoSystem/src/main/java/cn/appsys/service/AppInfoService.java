@@ -21,4 +21,6 @@ public interface AppInfoService {
 
 	boolean findapkName(String apkName);
 
+	boolean updateStatu(Long statu,Long appid);
+
 }

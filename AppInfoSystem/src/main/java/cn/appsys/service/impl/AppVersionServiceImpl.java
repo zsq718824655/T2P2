@@ -29,20 +29,27 @@ public class AppVersionServiceImpl implements AppVersionService{
 		list=appVersionMapper.getAllVersionByappId(appId);
 		return list;
 	}
-	/*@Override
-	public boolean saveAppVersion(AppVersionService appVersion) {
-	int i=	appVersionMapper.saveAppVersion(appVersion);
+	
+	@Override
+	public void saveAppVersion(AppVersion appVersiona) {
+		// TODO Auto-generated method stub
+		appVersionMapper.saveAppVersion(appVersiona);
+	}
+	@Override
+	public boolean updateApkFileName(Long versionId) {
+	int i=	appVersionMapper.updateApkFileName(versionId);
 	if(i>0) {
 		return true;
 	}else {
 		return false;
 	}
 		
-	}*/
+	}
+	
 	@Override
-	public void saveAppVersion(AppVersion appVersiona) {
-		// TODO Auto-generated method stub
-		appVersionMapper.saveAppVersion(appVersiona);
+	public void editsaveAppVersion(AppVersion appVersiona) {
+		appVersionMapper.editsaveAppVersion(appVersiona);
+		
 	}
 
 }

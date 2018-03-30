@@ -23,7 +23,11 @@
     <!-- Custom Theme Style -->
     <link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
 
-
+<script type="text/javascript">
+function exitSysGs(){
+	window.location.href="exitSysG";
+}
+</script>
 
 
 </head>
@@ -69,7 +73,7 @@
                 	
                   <li><a><i class="fa fa-home"></i>App应用管理<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="${pageContext.request.contextPath }/appMaintenanceView">App维护</a></li>
+                      <li><a href="${pageContext.request.contextPath }/backappMaintenanceView?appStatus=1">App维护</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -120,7 +124,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;">退出系统</a></li>
+                    <li><a onclick="exitSysGs()">退出系统</a></li>
                     
                     <li><a href="javascript:;">Help</a></li>
                    

@@ -25,7 +25,13 @@
     <link href="${pageContext.request.contextPath }/statics/css/custom.min.css" rel="stylesheet">
 
 
+<script type="text/javascript">
 
+function exitSys(){
+	window.location.href="exitSys";
+}
+
+</script>
 
 </head>
 
@@ -36,7 +42,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>APP BMS</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -121,7 +127,7 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;">退出系统</a></li>
+                    <li><a onclick="exitSys()">退出系统</a></li>
                     
                     <li><a href="javascript:;">Help</a></li>
                    

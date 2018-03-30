@@ -439,4 +439,9 @@
   select count(*) from app_info where APKName=#{apkName}
   </select>
   
+  <update id="updateStatu">
+  UPDATE app_info SET STATUS=#{statu} WHERE id=#{appid}
+  </update>
+  
+  
 </mapper>

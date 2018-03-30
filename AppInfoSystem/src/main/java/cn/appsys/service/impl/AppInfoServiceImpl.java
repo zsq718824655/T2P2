@@ -77,5 +77,14 @@ public class AppInfoServiceImpl implements AppInfoService {
 	}
 		
 	}
+	@Override
+	public boolean updateStatu(Long statu,Long appid) {
+		int i=	appInfoMapper.updateStatu(statu,appid);
+		if(i>0) {
+			return true;
+		}else {
+			return false;	
+		}
+	}
 
 }

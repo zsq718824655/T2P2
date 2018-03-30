@@ -50,4 +50,15 @@ public class BackLoginController {
 		}
 		
 	}
+	
+	
+	
+	//ÍË³öÏµÍ³
+	@RequestMapping("/exitSysG")
+	public String toLoginG(HttpSession session) {
+		System.out.println("=================================================");
+		session.invalidate();
+		return "redirect:/backlogin";
+	}
+	
 }

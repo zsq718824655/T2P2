@@ -21,7 +21,11 @@ $(function(){
 	$(".oneType").on(
 			"change",function(){
 				threeJ.html("");
+				twoJ.html("");
 		//alert($(this).val());
+				if($(this).val()==0){
+					twoJ.html("");
+				}else{
 				$.ajax({
 					type:"GET",//请求类型
 					url:"getAllTwo",//请求的url
@@ -44,7 +48,7 @@ $(function(){
 				});
 				
 			
-				
+				}
 				
 				
 				
@@ -171,7 +175,7 @@ function dletPic(appid){
 		);
 		
 		
-		$(".picdivdel").append('<input type="file"  name="logolocpathPic" class="form-control"  required="required">');
+		$(".picdivdel").append('<input type="file"  name="logolocpathPic"   required="required">');
 	}
 	
 }
@@ -225,13 +229,90 @@ function updateVersion(status,statusName,isversion,appid){
 	}
 }
 
-
+//apk文件的删除
 function dletAPKfileName(versionId){
-	alert(versionId);
+	
+	var flagTrue=confirm("确定要删除这个应用吗?");
+	if(flagTrue){
+		//移除图片
+		
+		$(".apkfilelabelDel").empty();
+		//数据库总清空该图片路径
+		$.ajax({
+			type:"GET",//请求类型
+			url:"deleteaplFile",//请求的url
+			data:{versionId:versionId},
+			dataType:"json",//ajax接口（请求url）返回的数据类型
+			success:function(data){//data：返回数据（json对象）
+				
+				}
+			}
+		
+		);
+		
+		
+		$(".apkfilelabelDel").append('<input type="file"  name="apkFileUp"   required="required">');
+	}
+	
+	
 }
 
 
+function editsaveApps(){
+	
+}
 
 
+//上架
+function upLine(statu,appids,indexs){
+	if(statu=="审核通过"){
+		$.ajax({
+			type:"GET",//请求类型
+			url:"upLine",//请求的url
+			data:{statu:4,appid:appids},
+			dataType:"json",//ajax接口（请求url）返回的数据类型
+			success:function(data){//data：返回数据（json对象）
+				if(data.issuc=="true"){
+					/*$(this).parent().parent().parent().parent().prev().prev().prev().html("55");*/	
+				
+					$(".statu_"+indexs).html("<font color='green'>已上架</font>");
+				}else{
+					alert("上架失败");
+				}
+				
+				}
+			}
+		
+		);
+	}else{
+		alert("该软件为["+statu+"],不能上架");
+	}
+}
 
-
+//下架
+function downLine(statu,appids,indexs){
+	
+	if(statu=="已上架"){
+		
+		$.ajax({
+			type:"GET",//请求类型
+			url:"upLine",//请求的url
+			data:{statu:5,appid:appids},
+			dataType:"json",//ajax接口（请求url）返回的数据类型
+			success:function(data){//data：返回数据（json对象）
+				if(data.issuc=="true"){
+					/*$(this).parent().parent().parent().parent().prev().prev().prev().html("55");*/	
+				
+					$(".statu_"+indexs).html("<font color='red'>已下架</font>");
+				}else{
+					alert("上架失败");
+				}
+				}
+			}
+		
+		);
+	}else{
+		alert("该软件为["+statu+"],不能进行下架操作");
+		
+	}
+}

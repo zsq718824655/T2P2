@@ -57,4 +57,14 @@ public class UserLoginController {
 		return "login";
 	}
 	
+	//普通退出系统
+	@RequestMapping("/exitSys")
+	public String exitSys(HttpSession session) {
+		session.invalidate();
+		return "redirect:/FirstLogin";
+	}
+	
+	
+	
+	
 }

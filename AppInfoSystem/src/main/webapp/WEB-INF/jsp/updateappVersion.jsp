@@ -51,7 +51,7 @@
 		
 		<form  id="saveAPPforms" class="form-horizontal " action="${pageContext.request.contextPath }/editVesion" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="appid" value="${appInfo.id }"/>
-		
+		<input type="hidden" name="id" value="${appVersions[0].id }"/>
 		 <div class="form-group">
 		    <label  class="col-sm-2 control-label">版本号</label>
 		    <div class="col-sm-4 col-md-4" >
@@ -73,8 +73,8 @@
 			<div class="form-group">
 		    <label  class="col-sm-2 control-label">发布状态</label>
 		    <div class="col-sm-4 col-md-4" >
-		     <!-- <label class="control-label apkNameLable">预发布</label> -->
-		      <input type="hidden" value="${publishNames[0] }" required="required" name="publishstatus" value="3" class="form-control"  readonly="readonly">
+		 <label class="control-label apkNameLable">预发布</label> 
+		      <input type="hidden"  required="required" name="publishstatus" value="3" class="form-control"  readonly="readonly">
 		    </div>
 		    <label class="control-label apkNameLable"></label>
 		   
@@ -91,15 +91,17 @@
 		<div class="form-group">
 		    <label  class="col-sm-2 control-label">apk文件</label>
 		    <div class="col-sm-4 col-md-4" >
-		    
+		    <div class="apkfilelabelDel">
 		    <c:choose>
 		    <c:when test="${appVersions[0].apkfilename!=null and appVersions[0].apkfilename!='' }">
-		<label class="control-label apkNameLable">${appVersions[0].apkfilename }</label>&nbsp;&nbsp;&nbsp;<a style="cursor:pointer" style="vertical-align: middle;"  onclick="dletAPKfileName(${appVersions[0].id})">删除</a>
+		<label class="control-label">${appVersions[0].apkfilename }</label>&nbsp;&nbsp;&nbsp;<a style="cursor:pointer" style="vertical-align: middle;"  onclick="dletAPKfileName(${appVersions[0].id})">删除</a>
 		    </c:when>
 		    <c:otherwise>
-		  	<input type="file"  name="apkFileUp" class="form-control"  required="required">
+		    
+		  	<input type="file"  name="apkFileUp"   required="required">
 		    </c:otherwise>
 		    </c:choose>
+		    </div>
     </div>
 		    
 		 
@@ -112,8 +114,8 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
   
-      <button type="buttom" class="btn btn-success" onclick="saveApps()">保存</button>
-      
+     
+      <input type="submit" value="保存"  class="btn btn-success" />
       <a href="javascript:history.back(-1)" class="btn btn-primary ">返回</a>
     </div>
   </div>
