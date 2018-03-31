@@ -21,8 +21,8 @@
             <form action="${pageContext.request.contextPath }/appMaintenanceView" method="post">
             <div class="row">
        `    <div class="col-md-3 form-group">
-       			 <span class="col-md-4 text-center col-sm-4" style="line-height: 34px">软件名称：</span>
-       			<div class="col-md-8 col-sm-8">
+       			 <span class="col-md-4 text-center col-sm-6" style="line-height: 34px">软件名称：</span>
+       			<div class="col-md-8 col-sm-6">
        			
        			 <input name="softwareName" class="form-control" type="text" value="${queryBean.softwareName }"/>
        			 </div>

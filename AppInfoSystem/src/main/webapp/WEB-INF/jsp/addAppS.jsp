@@ -38,7 +38,7 @@
   </div><div class="form-group">
     <label for="appSize" class="col-sm-2 control-label">软件大小</label>
     <div class="col-sm-4 col-md-4">
-      <input name="softwaresize" type="number"  class="form-control softSizeNum" id="appSize" required="required" >
+      <input name="softwaresize" type="number"  placeholder="请输入软件大小" class="form-control softSizeNum" id="appSize" required="required" >
     </div>
      <!--  <label class="control-label" >提示信息</label> --> 
   </div><div class="form-group">

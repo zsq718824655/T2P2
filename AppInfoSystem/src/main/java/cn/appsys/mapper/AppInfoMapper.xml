@@ -460,6 +460,9 @@
   
   </update>
   
+  <update id="modifyStatusNO" parameterType="long">
+   UPDATE app_info SET STATUS=3 WHERE id=#{appid}
   
+  </update>
   
 </mapper>

@@ -45,4 +45,7 @@ public interface AppInfoMapper {
 
 
 	void modifyStatus(long appid);
+
+
+	void modifyStatusNO(long appid);
 }

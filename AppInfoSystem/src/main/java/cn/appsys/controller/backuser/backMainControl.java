@@ -188,11 +188,18 @@ public class backMainControl {
 					
 					return"back/check";
 				}
-	   
+	   //Í¨¹ý
 			@RequestMapping("/pass")	
 			public String pass(long appid) {
 				
 				appInfoService.modifyStatus(appid);
 		return "forward:/backappMaintenanceView?appStatus=1";
-	}
+			}
+			
+		@RequestMapping("/nopass")	
+		public String nopass(long appid) {
+				
+		appInfoService.modifyStatusNO(appid);
+		return "forward:/backappMaintenanceView?appStatus=1";
+			}
 }

@@ -155,7 +155,7 @@
  				<td class="col-md-1">${appInfo.downloads }</td>
  				<td class="col-md-1">${appVersions[varstu.index].versionno } </td>
  					<td class="col-md-2 text-center">
- 				<a  onclick="checkfuc(${appInfo.id },${appVersions[varstu.index].versionno })" class="btn  btn-default">审核</a>
+ 				<a  onclick="checkfuc(${appInfo.id },'${appVersions[varstu.index].versionno }')" class="btn  btn-default">审核</a>
  				<!-- <div class="btn-group">
 					  <button type="button" class="btn  btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					    点击操作 <span class="caret"></span>

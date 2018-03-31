@@ -246,7 +246,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo">Logo图片<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="file" id="logo" name="logo" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12">
+                          <img height="80px" width="80px" style="vertical-align: middle;" class="control-label" alt="login的图片" src="/mypic/${showAppInfo.logolocpath}"/>
                         </div>
                       </div>
                       <label class="control-label apkNameLable">历史版本列表</label>

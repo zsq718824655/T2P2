@@ -30,5 +30,7 @@ public interface AppInfoService {
 	String getCatagoryLevel(long id);
 
 	void modifyStatus(long appid);
+
+	void modifyStatusNO(long appid);
  
 }

@@ -116,4 +116,10 @@ public class AppInfoServiceImpl implements AppInfoService {
      appInfoMapper.modifyStatus(appid);
 		
 	}
+
+	@Override
+	public void modifyStatusNO(long appid) {
+		// TODO Auto-generated method stub
+		appInfoMapper.modifyStatusNO(appid);
+	}
 }

@@ -265,6 +265,13 @@ function editsaveApps(){
 
 //上架
 function upLine(statu,appids,indexs){
+	var val=	$(".statu_"+indexs).children("font").text();
+	if(val=="已上架"){
+		alert("已经已上架状态了，不要重复操作！");
+	}else{
+	if(val=="已下架"){
+		alert("该软件为[已下架],不能上架");
+	}else{
 	if(statu=="审核通过"){
 		$.ajax({
 			type:"GET",//请求类型
@@ -284,15 +291,26 @@ function upLine(statu,appids,indexs){
 			}
 		
 		);
-	}else{
+	}else if(statu=="已上架"){
+		alert("已经已上架状态了，不要重复操作！");
+	}
+	else{
 		alert("该软件为["+statu+"],不能上架");
+	}
+	}
 	}
 }
 
 //下架
 function downLine(statu,appids,indexs){
-	
-	if(statu=="已上架"){
+var val=	$(".statu_"+indexs).children("font").text();
+if(val=="已下架"){
+	alert("已经是下架状态了，不要重复操作！");
+}else if(statu=="已下架"){
+	alert("已经是下架状态了，不要重复操作！");
+}
+else{
+if(statu=="已上架"||val=="已上架"){
 		
 		$.ajax({
 			type:"GET",//请求类型
@@ -315,4 +333,5 @@ function downLine(statu,appids,indexs){
 		alert("该软件为["+statu+"],不能进行下架操作");
 		
 	}
+}
 }
