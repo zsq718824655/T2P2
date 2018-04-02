@@ -126,7 +126,7 @@
       
      
     <!--  <label class="col-sm-2 control-label"> 你还没有logo,请选择</label> -->
-  <input type="file"  name="logolocpathPic"   required="required">
+  <input type="file"  name="logolocpathPic"   >
     
     </div>
      <!--  <label class="control-label" >提示信息</label> --> 

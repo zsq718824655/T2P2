@@ -139,7 +139,11 @@ function saveApps() {
 	
 	if(apkViladate){
 		
-		$("#saveAPPforms").submit();
+		$("#saveAPPforms").submit(
+		function(){
+			return true;
+		}		
+		);
 		
 	}else{
 		alert("apk名字已经被用!");
