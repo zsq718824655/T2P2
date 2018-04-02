@@ -279,7 +279,7 @@
  				
  				
  				 
-			</table>+
+			</table>
                     </form>
 		                 
 		                     <div class="form-group">
