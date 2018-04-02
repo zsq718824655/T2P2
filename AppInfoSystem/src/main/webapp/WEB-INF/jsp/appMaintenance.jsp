@@ -20,17 +20,17 @@
             
             <form action="${pageContext.request.contextPath }/appMaintenanceView" method="post">
             <div class="row">
-       `    <div class="col-md-3 form-group">
-       			 <span class="col-md-4 text-center col-sm-6" style="line-height: 34px">软件名称：</span>
-       			<div class="col-md-8 col-sm-6">
+       `    <div class="col-md-3   form-group">
+       			 <span class="col-md-6  text-center " style="line-height: 34px">软件名称：</span>
+       			<div class="col-md-6 ">
        			
        			 <input name="softwareName" class="form-control" type="text" value="${queryBean.softwareName }"/>
        			 </div>
        		</div>
        		
-       		<div class="col-md-3 form-group">
-  			        <span class="col-md-4 text-center" style="line-height: 34px">app状态：</span>
-       			<div class="col-md-8">
+       		<div class="col-md-3  form-group">
+  			        <span class="col-md-6 text-center" style="line-height: 34px">app状态：</span>
+       			<div class="col-md-6 ">
        			
        			 <select name="appStatus" class="form-control">
        			<c:if test="${allStatus != null }">
@@ -47,9 +47,9 @@
        			 </div>
        		</div>
        		
-       		<div class="col-md-3 form-group">
-        	     <span class="col-md-4 text-center" style="line-height: 34px">所属平台：</span>
-       			<div class="col-md-8">
+       		<div class="col-md-3  form-group">
+        	     <span class="col-md-6  text-center" style="line-height: 34px">所属平台：</span>
+       			<div class="col-md-6  ">
        			
        			 <select name="appFlatform" class="form-control">
        			<c:if test="${allplat != null }">
@@ -62,12 +62,14 @@
        			</select>
        			 </div>
        		</div>
+       		
+       		
             </div>
             
             <div class="row">
                  <div class="col-md-3 form-group">
-       			 <span class="col-md-4 text-center" style="line-height: 34px">一级分类：</span>
-       			<div class="col-md-8">
+       			 <span class="col-md-6 text-center" style="line-height: 34px">一级分类：</span>
+       			<div class="col-md-6">
        			
        			 <select  name="oneType" class="form-control oneType">
        			<c:if test="${oneAllCategroy != null }">
@@ -82,8 +84,8 @@
        		</div>
        		
        		<div class="col-md-3 form-group">
-  			        <span class="col-md-4 text-center" style="line-height: 34px">二级分类：</span>
-       			<div class="col-md-8">
+  			        <span class="col-md-6 text-center" style="line-height: 34px">二级分类：</span>
+       			<div class="col-md-6">
        			
        			<select name="twoType" class="form-control twoType">
        			<c:if test="${twoAllCategroy != null }">
@@ -99,8 +101,8 @@
        		</div>
        		
        		<div class="col-md-3 form-group">
-        	     <span class="col-md-4 text-center" style="line-height: 34px">三级分类：</span>
-       			<div class="col-md-8">
+        	     <span class="col-md-6 text-center" style="line-height: 34px">三级分类：</span>
+       			<div class="col-md-6">
        			
        			 <select name="threeType" class="form-control threeType">
        			<c:if test="${threeAllCategroy != null }">
