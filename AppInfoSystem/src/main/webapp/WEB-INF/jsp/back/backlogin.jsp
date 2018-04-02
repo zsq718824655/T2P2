@@ -44,7 +44,7 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form id="backform" action="backloginGo" method="post">
-              <h1>开发者登录</h1>
+              <h1>管理员登录</h1>
               <div>
               <span id="unusercode"></span>
                 <input type="text" id="userCode" class="form-control" name="usercode"   placeholder="Username" required="" /><span></span> 

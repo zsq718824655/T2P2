@@ -48,11 +48,11 @@
               <div>
             <%-- <form  method="post" action="${pageContext.request.contextPath }/loginGo">
 					<input type="button" value ="普 通 用 户 登 录"> --%>
- 		<a href="${pageContext.request.contextPath }/FirstLogin">普通用户登录</a><br><br>
+ 		<a href="${pageContext.request.contextPath }/FirstLogin">开发者登录</a><br><br>
               </div>
               <span></span>
               <div>
-              	<a href="${pageContext.request.contextPath }/backlogin">开发者登录</a><br><br>
+              	<a href="${pageContext.request.contextPath }/backlogin">管理员登录</a><br><br>
               </div>
     
            

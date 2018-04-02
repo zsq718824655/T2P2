@@ -45,7 +45,7 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form id="devForm" action="${pageContext.request.contextPath }/loginGo"  method="post">
-              <h1>普通用户登录</h1>
+              <h1>开发者登录</h1>
               <div>
                  <span id="undevname"></span>
                 <input type="text" id="devCode" class="form-control" name="devcode"   placeholder="Username" required="" /><span></span> 
