@@ -73,7 +73,7 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> 普通用户!</h1>
+                  <h1><i class="fa fa-paw"></i> 开发者!</h1>
                 </div>
               </div>
             </form>

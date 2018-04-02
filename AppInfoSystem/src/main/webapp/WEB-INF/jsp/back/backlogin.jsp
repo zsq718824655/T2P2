@@ -72,7 +72,7 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> 开发者用户!</h1>
+                  <h1><i class="fa fa-paw"></i> 管理员用户!</h1>
                 </div>
               </div>
             </form>
