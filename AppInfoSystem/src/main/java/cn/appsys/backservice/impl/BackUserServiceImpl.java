@@ -25,10 +25,7 @@ public class BackUserServiceImpl implements BackUserService {
 		BackUser bu =null;
 		bu= backuserMapper.getLoginUser(usercode, userpassword);
 		
-		/*if(null!=usercode) {//有用账户
-			if(!userpassword.equals(bu.getUsercode()))//密码不正确
-				bu =null;
-		}*/
+		
 		return bu;
 	}
 

@@ -19,13 +19,13 @@ public interface DataDictionaryMapper {
     //+++++++++++++++++++
     //获得名字
 	String getByIdName(Long flatformid);
-
+	//获得状态
 	String getByStatusId(Long status);
-
+	//获取多有数字字典
 	List<DataDictionary> getAllStatus();
-
+	//获取平台名字
 	List<DataDictionary> getAllplatNames();
-
+	//获取版本的状态
 	String getpublishStatu(Long publishstatus);
 	
 	//获取APP状态

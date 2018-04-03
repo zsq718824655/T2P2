@@ -19,6 +19,7 @@ public interface BackUserMapper {
 
 
     //================
+    //用户账号和密码获取用户
 	BackUser getLoginUser(@Param("username")String username,@Param("password")String password);
 	
 

@@ -17,10 +17,11 @@ public interface AppCategroyMapper {
 
     int updateByPrimaryKey(AppCategroy record);
     //++++++++++++++
+    //根据分级的id号获取分类名字
 	String getByCatagroyIdName(Long categorylevel);
-
+	//根据父id获取分级对象集合
 	List<AppCategroy> getAllCatagroy(Integer parentId);
-
+	//根据父id获取二级三级分类
 	List<AppCategroy> getTwoCatagroy(Integer parentId);
 	
 	
