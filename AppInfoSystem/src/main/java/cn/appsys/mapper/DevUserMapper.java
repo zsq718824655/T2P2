@@ -30,7 +30,7 @@ public interface DevUserMapper {
     public DevUser findUserByNameAndPwd(@Param("devcode") String devcode, @Param("devpassword")String devpassword);  
     //根据用户名查询
     public DevUser findByUserName(String devcode);
- 
+    
 }  
     
     
